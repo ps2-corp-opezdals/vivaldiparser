@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LabFramework: Класс DrWebAlerts.Parser._DrWebLogParser</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">LabFramework<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Документация к программному обеспечению LabFramework</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="namespace_dr_web_alerts.html">DrWebAlerts</a></li><li class="navelem"><a href="namespace_dr_web_alerts_1_1_parser.html">Parser</a></li><li class="navelem"><a href="class_dr_web_alerts_1_1_parser_1_1___dr_web_log_parser.html">_DrWebLogParser</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pro-methods">Защищенные члены</a> &#124;
+<a href="#pro-attribs">Защищенные данные</a> &#124;
+<a href="class_dr_web_alerts_1_1_parser_1_1___dr_web_log_parser-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс DrWebAlerts.Parser._DrWebLogParser</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:a6afbd7fa19606ea94764a898701a635a" id="r_a6afbd7fa19606ea94764a898701a635a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6afbd7fa19606ea94764a898701a635a">__init__</a> (self, dict parserParameters, dict recordFields)</td></tr>
+<tr class="memitem:ae60c57c126864c85c98022aaabd2c49f" id="r_ae60c57c126864c85c98022aaabd2c49f"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae60c57c126864c85c98022aaabd2c49f">Start</a> (self)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-methods" class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Защищенные члены</h2></td></tr>
+<tr class="memitem:a04a99656079aba97d2ccaab9ab23a4d5" id="r_a04a99656079aba97d2ccaab9ab23a4d5"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04a99656079aba97d2ccaab9ab23a4d5">_CleanRecord</a> (self)</td></tr>
+<tr class="memitem:adea374ffa3dbc01ca0a6b463053d301e" id="r_adea374ffa3dbc01ca0a6b463053d301e"><td class="memItemLeft" align="right" valign="top">None&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adea374ffa3dbc01ca0a6b463053d301e">_GetInfo</a> (self, str log_path, str evtx_path)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Защищенные данные</h2></td></tr>
+<tr class="memitem:a1908ba483d6fdb05a54ae1289c1fd521" id="r_a1908ba483d6fdb05a54ae1289c1fd521"><td class="memItemLeft" align="right" valign="top">str&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1908ba483d6fdb05a54ae1289c1fd521">_storage</a> = parserParameters.get('STORAGE')</td></tr>
+<tr class="memitem:a039950d9ee11ca1061f28fed555c323f" id="r_a039950d9ee11ca1061f28fed555c323f"><td class="memItemLeft" align="right" valign="top">Any&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a039950d9ee11ca1061f28fed555c323f">_wr</a> = parserParameters.get('OUTPUTWRITER')</td></tr>
+<tr class="memitem:aeeedc389ba634abb9786b2dff6802c85" id="r_aeeedc389ba634abb9786b2dff6802c85"><td class="memItemLeft" align="right" valign="top">Any&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeeedc389ba634abb9786b2dff6802c85">_db</a> = parserParameters.get('DBCONNECTION')</td></tr>
+<tr class="memitem:ade4024d6ea2a9db03067bfc00686b902" id="r_ade4024d6ea2a9db03067bfc00686b902"><td class="memItemLeft" align="right" valign="top">dict&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade4024d6ea2a9db03067bfc00686b902">_record</a> = {field: '' for field in recordFields.keys()}</td></tr>
+<tr class="memitem:a98f36d1a4e41a7f1afb521c6408784e8" id="r_a98f36d1a4e41a7f1afb521c6408784e8"><td class="memItemLeft" align="right" valign="top">Any&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a98f36d1a4e41a7f1afb521c6408784e8">_tc</a> = <a class="el" href="class_common_1_1_routines_1_1_time_converter.html">TimeConverter</a>()</td></tr>
+<tr class="memitem:ab7d9a4e9792926fd14103e6d26a267bd" id="r_ab7d9a4e9792926fd14103e6d26a267bd"><td class="memItemLeft" align="right" valign="top">tzInfo&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7d9a4e9792926fd14103e6d26a267bd">_currentTzInfo</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><pre class="fragment">Базовый класс, иницилизирующий пармметры для извлечения и обработки данных журналов АВЗ DrWeb 
+</pre> </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Конструктор(ы)</h2>
+<a id="a6afbd7fa19606ea94764a898701a635a" name="a6afbd7fa19606ea94764a898701a635a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6afbd7fa19606ea94764a898701a635a">&#9670;&#160;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">DrWebAlerts.Parser._DrWebLogParser.__init__ </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dict</td>          <td class="paramname"><span class="paramname"><em>parserParameters</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">dict</td>          <td class="paramname"><span class="paramname"><em>recordFields</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="a04a99656079aba97d2ccaab9ab23a4d5" name="a04a99656079aba97d2ccaab9ab23a4d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04a99656079aba97d2ccaab9ab23a4d5">&#9670;&#160;</a></span>_CleanRecord()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None DrWebAlerts.Parser._DrWebLogParser._CleanRecord </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">Метод для фрагментарной очистки полей записи обработанных данных
+</pre> 
+</div>
+</div>
+<a id="adea374ffa3dbc01ca0a6b463053d301e" name="adea374ffa3dbc01ca0a6b463053d301e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adea374ffa3dbc01ca0a6b463053d301e">&#9670;&#160;</a></span>_GetInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None DrWebAlerts.Parser._DrWebLogParser._GetInfo </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>log_path</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>evtx_path</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">Метод обработки данных из dwservice.log и Doctor Web.evtx.
+
+Args:
+    log_path (str): путь до выгруженного dwservice.log
+    evtx_path (str): путь до выгруженного Doctor Web.evtx
+</pre> 
+</div>
+</div>
+<a id="ae60c57c126864c85c98022aaabd2c49f" name="ae60c57c126864c85c98022aaabd2c49f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae60c57c126864c85c98022aaabd2c49f">&#9670;&#160;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"> None DrWebAlerts.Parser._DrWebLogParser.Start </td>
+          <td>(</td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>self</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<pre class="fragment">Метод-обертка для вызова логики обработки данных
+</pre> 
+</div>
+</div>
+<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Данные класса</h2>
+<a id="ab7d9a4e9792926fd14103e6d26a267bd" name="ab7d9a4e9792926fd14103e6d26a267bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7d9a4e9792926fd14103e6d26a267bd">&#9670;&#160;</a></span>_currentTzInfo</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">tzInfo DrWebAlerts.Parser._DrWebLogParser._currentTzInfo</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Инициализатор</b><div class="fragment"><div class="line">=  tzInfo(300,  <span class="comment"># Часовой пояс ЕКБ в минутах</span></div>
+<div class="line">                                             <span class="stringliteral">&#39;Asia/Yekaterinburg&#39;</span>)</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aeeedc389ba634abb9786b2dff6802c85" name="aeeedc389ba634abb9786b2dff6802c85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeeedc389ba634abb9786b2dff6802c85">&#9670;&#160;</a></span>_db</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Any DrWebAlerts.Parser._DrWebLogParser._db = parserParameters.get('DBCONNECTION')</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ade4024d6ea2a9db03067bfc00686b902" name="ade4024d6ea2a9db03067bfc00686b902"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade4024d6ea2a9db03067bfc00686b902">&#9670;&#160;</a></span>_record</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">dict DrWebAlerts.Parser._DrWebLogParser._record = {field: '' for field in recordFields.keys()}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1908ba483d6fdb05a54ae1289c1fd521" name="a1908ba483d6fdb05a54ae1289c1fd521"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1908ba483d6fdb05a54ae1289c1fd521">&#9670;&#160;</a></span>_storage</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">str DrWebAlerts.Parser._DrWebLogParser._storage = parserParameters.get('STORAGE')</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a98f36d1a4e41a7f1afb521c6408784e8" name="a98f36d1a4e41a7f1afb521c6408784e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98f36d1a4e41a7f1afb521c6408784e8">&#9670;&#160;</a></span>_tc</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Any DrWebAlerts.Parser._DrWebLogParser._tc = <a class="el" href="class_common_1_1_routines_1_1_time_converter.html">TimeConverter</a>()</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a039950d9ee11ca1061f28fed555c323f" name="a039950d9ee11ca1061f28fed555c323f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a039950d9ee11ca1061f28fed555c323f">&#9670;&#160;</a></span>_wr</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Any DrWebAlerts.Parser._DrWebLogParser._wr = parserParameters.get('OUTPUTWRITER')</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel protected">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>P:/555_LabFramework/Modules/DrWebAlerts/<a class="el" href="_dr_web_alerts_2_parser_8py.html">Parser.py</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

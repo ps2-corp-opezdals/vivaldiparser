@@ -1,0 +1,6 @@
+regipy==2.6.1
+typing_extensions==4.11.0
+pytz==2024.1
+python-evtx==0.7.4
+xmltodict==0.13.0
+annotated-types==0.6.0

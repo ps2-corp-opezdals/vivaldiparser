@@ -1,0 +1,52 @@
+[1304|2724] [INFO] 17:07:33.784959 - {STARTER}: =======================================
+[1304|2724] [INFO] 17:07:33.785812 - {STARTER}: Started on 2024-11-01
+[1304|2724] [INFO] 17:07:33.785851 - {STARTER}: CreateParsedParamsMap started.
+[1304|2724] [INFO] 17:07:33.785895 - {STARTER}: CreateParsedParamsMap completed successfully.
+[1304|2724] [INFO] 17:07:33.785911 - {STARTER}: Command Line: 
+[1304|2724] [INFO] 17:07:33.786334 - {STARTER}: DistribVersion of current setup: 12.0.6.8220
+[1304|2724] [INFO] 17:07:33.786357 - {STARTER}: CreateParsedParamsMap started.
+[1304|2724] [INFO] 17:07:33.786371 - {STARTER}: CreateParsedParamsMap completed successfully.
+[1304|2724] [INFO] 17:07:33.786625 - {STARTER}: Setup started with protection.
+[1304|2724] [INFO] 17:07:33.786639 - {STARTER}: CreateParsedParamsMap started.
+[1304|2724] [INFO] 17:07:33.786646 - {STARTER}: CreateParsedParamsMap completed successfully.
+[1304|2724] [INFO] 17:07:33.786652 - {STARTER}: Setup started in gui mode.
+[1304|2724] [INFO] 17:07:33.786657 - {STARTER}: Showing SplashScreen...
+[1304|2724] [INFO] 17:07:33.902820 - {STARTER}: CreateParsedParamsMap started.
+[1304|2724] [INFO] 17:07:33.902856 - {STARTER}: CreateParsedParamsMap completed successfully.
+[1304|2724] [INFO] 17:07:34.425470 - {STARTER}: Setup work dir: "C:\Users\mihai\AppData\Local\Temp\64FEB48C-31BFF94A-193BBEA0-DF841A2C"
+[1304|2724] [INFO] 17:07:34.425874 - {UTILS}: GetPathTo(35) started.
+[1304|2724] [INFO] 17:07:34.426004 - {UTILS}: GetPathTo(35) completed with (C:\ProgramData) result.
+[1304|2724] [INFO] 17:07:35.364838 - {STARTER}: Setup work dir protected.
+[1304|2724] [INFO] 17:07:35.364869 - {STARTER}: Doctor Web dir path: "C:\ProgramData\Doctor Web"
+[1304|2724] [INFO] 17:07:35.364896 - {STARTER}: Doctor Web path protected.
+[1304|2724] [INFO] 17:07:35.364907 - {STARTER}: Doctor Web reg branch: "\registry\machine\SOFTWARE\Doctor Web"
+[1304|2724] [INFO] 17:07:35.364943 - {STARTER}: Registry branch protected.
+[1304|2724] [INFO] 17:07:35.365091 - {STARTER}: start() started.
+[1304|2724] [INFO] 17:07:35.365162 - {STARTER}: dwprot driver api version: 1.58
+[1304|2724] [INFO] 17:07:35.365180 - {STARTER}: dwprot driver version: 12.6.13.6070
+[1304|2724] [INFO] 17:07:35.365188 - {STARTER}: Waiting for unpack completion (waiting for unpack_complete_evt)...
+[1304|716] [INFO] 17:07:35.365191 - {STARTER}: unpack_files_proc() started
+[1304|716] [INFO] 17:07:35.651148 - {Unpacker}: LzmaUnpack('C:\Users\mihai\AppData\Local\Temp\64FEB48C-31BFF94A-193BBEA0-DF841A2C\win-srv-setup.exe.lzma' -> 'C:\Users\mihai\AppData\Local\Temp\64FEB48C-31BFF94A-193BBEA0-DF841A2C\win-srv-setup.exe') started.
+[1304|716] [INFO] 17:07:35.891766 - {Unpacker}: LzmaUnpack('C:\Users\mihai\AppData\Local\Temp\64FEB48C-31BFF94A-193BBEA0-DF841A2C\win-srv-setup.exe.lzma' -> 'C:\Users\mihai\AppData\Local\Temp\64FEB48C-31BFF94A-193BBEA0-DF841A2C\win-srv-setup.exe') completed with (true) result.
+[1304|716] [INFO] 17:07:35.891860 - {STARTER}: unpack_files_proc() completed
+[1304|2724] [INFO] 17:07:35.891875 - {STARTER}: Setup extracted.
+[1304|2724] [INFO] 17:07:35.891896 - {STARTER}: CreateParsedParamsMap started.
+[1304|2724] [INFO] 17:07:35.891904 - {STARTER}: CreateParsedParamsMap completed successfully.
+[1304|2724] [INFO] 17:07:35.891916 - {STARTER}: Path to distrib: C:\Users\mihai\Downloads\drweb-12.0+fstek-4ud-av-win-server.exe
+[1304|2724] [INFO] 17:07:35.891924 - {STARTER}: Path to setup: C:\Users\mihai\AppData\Local\Temp\64FEB48C-31BFF94A-193BBEA0-DF841A2C\win-srv-setup.exe
+[1304|2724] [INFO] 17:07:36.063691 - {STARTER}: SetupVersion of current setup: 12.10.16.10140
+[1304|2724] [INFO] 17:07:36.063797 - {STARTER}: CreateParsedParamsMap started.
+[1304|2724] [INFO] 17:07:36.063811 - {STARTER}: CreateParsedParamsMap completed successfully.
+[1304|2724] [INFO] 17:07:36.063825 - {STARTER}: cmd: "C:\Users\mihai\AppData\Local\Temp\64FEB48C-31BFF94A-193BBEA0-DF841A2C\win-srv-setup.exe" /cert fstek /distribpath C:\Users\mihai\Downloads\drweb-12.0+fstek-4ud-av-win-server.exe
+[1304|2724] [INFO] 17:07:36.147907 - {STARTER}: Setup started.
+[1304|2724] [INFO] 17:07:36.147981 - {STARTER}: Waiting for hide-splash-screen event or setup completion...
+[1304|2724] [INFO] 17:07:37.017216 - {STARTER}: Hiding SplashScreen...
+[1304|2724] [INFO] 17:07:37.028792 - {STARTER}: Waiting for setup completion...
+[1304|2724] [INFO] 17:07:47.955708 - {STARTER}: exitCode = 7
+[1304|2724] [INFO] 17:07:47.955892 - {STARTER}: start() completed.
+[1304|2724] [INFO] 17:07:47.955954 - {UTILS}: IsServiceExist(DwProt) started.
+[1304|2724] [INFO] 17:07:47.956358 - {UTILS}: Service not exist.
+[1304|2724] [INFO] 17:07:47.956402 - {UTILS}: IsServiceExist(DwProt) completed.
+[1304|2724] [INFO] 17:07:47.956415 - {STARTER}: DwProt service not exist.
+[1304|2724] [INFO] 17:07:47.956471 - {UTILS}: Utils::RemoveDirectory(C:\Users\mihai\AppData\Local\Temp\64FEB48C-31BFF94A-193BBEA0-DF841A2C) started.
+[1304|2724] [INFO] 17:07:47.959063 - {UTILS}: Utils::RemoveDirectory(C:\Users\mihai\AppData\Local\Temp\64FEB48C-31BFF94A-193BBEA0-DF841A2C) completed with (true) result.

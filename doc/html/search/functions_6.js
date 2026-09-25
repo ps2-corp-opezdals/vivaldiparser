@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['getamountofrecords_0',['GetAmountOfRecords',['../class_common_1_1_routines_1_1_s_q_lite_database_interface_reader.html#a0d79ec4dcc40ed6f7b099a0432a56dae',1,'Common::Routines::SQLiteDatabaseInterfaceReader']]],
+  ['getappstartdatetime_1',['GetAppStartDateTime',['../class_interfaces_1_1_main_1_1_interface.html#a6cad73a28fd8377fa0b9423fd9756183',1,'Interfaces::Main::Interface']]],
+  ['getbinaryfilecontent_2',['GetBinaryFileContent',['../class_common_1_1_routines_1_1_file_content_reader.html#ae8bbe39628bbc132f57ab9bac70f5bb3',1,'Common::Routines::FileContentReader']]],
+  ['getdatabasepath_3',['GetDatabasePath',['../class_common_1_1_routines_1_1___abstract_database_class.html#a148d07d1b29c96b978d2397f72ade3f9',1,'Common::Routines::_AbstractDatabaseClass']]],
+  ['getdbconnection_4',['GetDBConnection',['../class_interfaces_1_1_output_interface_1_1_s_q_lite_d_b_output_writer.html#af737be4ed7f6b229a05247c5697ed20c',1,'Interfaces::OutputInterface::SQLiteDBOutputWriter']]],
+  ['getdbname_5',['GetDBName',['../class_interfaces_1_1_output_interface_1_1_s_q_lite_d_b_output_writer.html#a7df17b42f06bfa84cbeebdf18028eab4',1,'Interfaces::OutputInterface::SQLiteDBOutputWriter']]],
+  ['getheaders_6',['GetHeaders',['../class_common_1_1_routines_1_1_s_q_lite_database_interface_reader.html#a8fcb6f916dd85422554a7ab513179bb2',1,'Common::Routines::SQLiteDatabaseInterfaceReader']]],
+  ['getinfo_7',['GetInfo',['../class_common_1_1_routines_1_1_s_q_lite_database_interface_reader.html#a8b72e54aaed7a66c76019ffe83138693',1,'Common::Routines::SQLiteDatabaseInterfaceReader']]],
+  ['getrecordidcache_8',['GetRecordIdCache',['../class_common_1_1_routines_1_1_s_q_lite_database_interface_reader.html#abc624b3f8d00eadee04ce7b6ac72fb4d',1,'Common::Routines::SQLiteDatabaseInterfaceReader']]],
+  ['getregistryhandle_9',['GetRegistryHandle',['../class_common_1_1_routines_1_1___abstract_registry_file_handler.html#a4263899a34c8ddfa9466359a34baa809',1,'Common.Routines._AbstractRegistryFileHandler.GetRegistryHandle()'],['../class_common_1_1_routines_1_1_registry_file_handler.html#ae8bb5e70c199cae213d2528b8e8b8c60',1,'Common.Routines.RegistryFileHandler.GetRegistryHandle()']]],
+  ['getregistrypath_10',['GetRegistryPath',['../class_common_1_1_routines_1_1___abstract_registry_file_handler.html#a200779bd467c1ec603fe9a21d96a16d2',1,'Common::Routines::_AbstractRegistryFileHandler']]],
+  ['getsettings_11',['GetSettings',['../class_interfaces_1_1_main_1_1_interface.html#aaca3139cf8ee9e8c78d7eeb0d43e71e5',1,'Interfaces.Main.Interface.GetSettings()'],['../class_interfaces_1_1_settings_interface_1_1_settings_interface.html#a0508e74f7792444538d251d6e0635a80',1,'Interfaces.SettingsInterface.SettingsInterface.GetSettings()']]],
+  ['getsettingvaluebyname_12',['GetSettingValueByName',['../class_interfaces_1_1_main_1_1_interface.html#a0adff2d7e5d18856f645ecfd971a8628',1,'Interfaces.Main.Interface.GetSettingValueByName()'],['../class_interfaces_1_1_settings_interface_1_1_settings_interface.html#a4bdccfc15a790d795ec5b5a22fad08b2',1,'Interfaces.SettingsInterface.SettingsInterface.GetSettingValueByName()']]],
+  ['getsqlitedbfilecontent_13',['GetSQLiteDBFileContent',['../class_common_1_1_routines_1_1_file_content_reader.html#aea957c1fc5b58dbd1640b91b0b035377',1,'Common::Routines::FileContentReader']]],
+  ['gettextfilecontent_14',['GetTextFileContent',['../class_common_1_1_routines_1_1_file_content_reader.html#ac253ed751cdae45f855e262cae26ad77',1,'Common::Routines::FileContentReader']]],
+  ['gettimeinsoftwareformat_15',['GetTimeInSoftwareFormat',['../class_common_1_1_routines_1_1_time_converter.html#a2284e6b43e486f9b5bec252b4c185788',1,'Common::Routines::TimeConverter']]]
+];

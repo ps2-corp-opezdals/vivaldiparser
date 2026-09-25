@@ -1,0 +1,322 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.15.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LabFramework: Класс Common.Routines.FileContentReader</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">LabFramework<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Документация к программному обеспечению LabFramework</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.15.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Поиск',false);
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Загрузка...</div>
+<div class="SRStatus" id="Searching">Поиск...</div>
+<div class="SRStatus" id="NoMatches">Не найдено</div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a href="namespace_common.html">Common</a></li><li class="navelem"><a href="namespace_common_1_1_routines.html">Routines</a></li><li class="navelem"><a href="class_common_1_1_routines_1_1_file_content_reader.html">FileContentReader</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">Открытые статические члены</a> &#124;
+<a href="class_common_1_1_routines_1_1_file_content_reader-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle"><div class="title">Класс Common.Routines.FileContentReader</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Открытые статические члены</h2></td></tr>
+<tr class="memitem:a4596a189f7a85426450b0b1d0249c942" id="r_a4596a189f7a85426450b0b1d0249c942"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4596a189f7a85426450b0b1d0249c942">IsExists</a> (str fullPath)</td></tr>
+<tr class="memitem:a760278ed8fa4da98f1cebb6ded38cb80" id="r_a760278ed8fa4da98f1cebb6ded38cb80"><td class="memItemLeft" align="right" valign="top">List&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a760278ed8fa4da98f1cebb6ded38cb80">ListDir</a> (str folderFullPath)</td></tr>
+<tr class="memitem:aea957c1fc5b58dbd1640b91b0b035377" id="r_aea957c1fc5b58dbd1640b91b0b035377"><td class="memItemLeft" align="right" valign="top">Tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea957c1fc5b58dbd1640b91b0b035377">GetSQLiteDBFileContent</a> (str folderPath, str fileName='', bool includeTimestamps=True)</td></tr>
+<tr class="memitem:ac253ed751cdae45f855e262cae26ad77" id="r_ac253ed751cdae45f855e262cae26ad77"><td class="memItemLeft" align="right" valign="top">Tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac253ed751cdae45f855e262cae26ad77">GetTextFileContent</a> (str folderPath, str fileName='', str encoding='utf-8', bool includeTimestamps=True)</td></tr>
+<tr class="memitem:ae8bbe39628bbc132f57ab9bac70f5bb3" id="r_ae8bbe39628bbc132f57ab9bac70f5bb3"><td class="memItemLeft" align="right" valign="top">Tuple&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae8bbe39628bbc132f57ab9bac70f5bb3">GetBinaryFileContent</a> (str folderPath, str fileName='', bool includeTimestamps=True)</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Подробное описание</h2>
+<div class="textblock"><pre class="fragment">Класс предоставляет статические методы для работы с файловой системой, 
+такие как проверка существования файла или каталога, 
+получение содержимого SQLite, текстового и бинарного файлов. 
+
+Класс также позволяет получить временные отметки создания, изменения и доступа к файлу в формате FILETIME Microsoft.
+</pre> </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Методы</h2>
+<a id="ae8bbe39628bbc132f57ab9bac70f5bb3" name="ae8bbe39628bbc132f57ab9bac70f5bb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae8bbe39628bbc132f57ab9bac70f5bb3">&#9670;&#160;</a></span>GetBinaryFileContent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> Tuple Common.Routines.FileContentReader.GetBinaryFileContent </td>
+          <td>(</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>folderPath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>fileName</em></span><span class="paramdefsep"> = </span><span class="paramdefval">''</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>includeTimestamps</em></span><span class="paramdefsep"> = </span><span class="paramdefval">True</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">Метод принимает путь к двоичному файлу и опционально его имя, 
+а также флаг для включения временных отметок создания, изменения и доступа. 
+
+Метод возвращает кортеж с временными отметками в формате FILETIME Microsoft, путем к двоичному файлу и его содержимым.
+
+Args:
+    folderPath (str): Путь (полный путь) до файла
+    fileName (str, optional): Имя файла . Defaults to ''.
+    includeTimestamps (bool, optional): флаг включения в результат значений временных меток. Defaults to True.
+
+Returns:
+    Tuple: кортеж с содержимым и именем файла
+</pre> 
+</div>
+</div>
+<a id="aea957c1fc5b58dbd1640b91b0b035377" name="aea957c1fc5b58dbd1640b91b0b035377"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea957c1fc5b58dbd1640b91b0b035377">&#9670;&#160;</a></span>GetSQLiteDBFileContent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> Tuple Common.Routines.FileContentReader.GetSQLiteDBFileContent </td>
+          <td>(</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>folderPath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>fileName</em></span><span class="paramdefsep"> = </span><span class="paramdefval">''</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>includeTimestamps</em></span><span class="paramdefsep"> = </span><span class="paramdefval">True</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">Метод принимает путь к файлу SQLite базы данных и опционально его имя, 
+а также флаг для включения временных отметок создания, изменения и доступа. 
+
+Метод возвращает кортеж с временными отметками в формате FILETIME Microsoft, путем к файлу SQLite базы данных 
+и содержимым файлов базы данных, journal файла и write-ahead log файла.
+
+Args:
+    folderPath (str): Путь (полный путь) до файла БД
+    fileName (str, optional): Имя файла БД. Defaults to ''.
+    includeTimestamps (bool, optional): флаг включения в результат значений временных меток. Defaults to True.
+
+Returns:
+    Tuple: кортеж с содержимым и именем файла
+</pre> 
+</div>
+</div>
+<a id="ac253ed751cdae45f855e262cae26ad77" name="ac253ed751cdae45f855e262cae26ad77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac253ed751cdae45f855e262cae26ad77">&#9670;&#160;</a></span>GetTextFileContent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> Tuple Common.Routines.FileContentReader.GetTextFileContent </td>
+          <td>(</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>folderPath</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>fileName</em></span><span class="paramdefsep"> = </span><span class="paramdefval">''</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>encoding</em></span><span class="paramdefsep"> = </span><span class="paramdefval">'utf-8'</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>includeTimestamps</em></span><span class="paramdefsep"> = </span><span class="paramdefval">True</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">Метод принимает путь к текстовому файлу и опционально его имя, 
+а также флаг для включения временных отметок создания, изменения и доступа. 
+
+Метод возвращает кортеж с временными отметками в формате FILETIME Microsoft, путем к текстовому файлу и его содержимым в виде словаря,
+где ключ - порядковый номер строки, а значение - сама строка.
+
+Args:
+    folderPath (str): Путь (полный путь) до файла
+    fileName (str, optional): Имя файла . Defaults to ''.
+    includeTimestamps (bool, optional): флаг включения в результат значений временных меток. Defaults to True.
+
+Returns:
+    Tuple: кортеж с содержимым и именем файла
+</pre> 
+</div>
+</div>
+<a id="a4596a189f7a85426450b0b1d0249c942" name="a4596a189f7a85426450b0b1d0249c942"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4596a189f7a85426450b0b1d0249c942">&#9670;&#160;</a></span>IsExists()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> bool Common.Routines.FileContentReader.IsExists </td>
+          <td>(</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>fullPath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">Метод проверки наличия файла или каталога
+
+Args:
+    fullPath (str): полный путь до файла / каталога
+
+Returns:
+    bool: файл в наличии / отсуствует
+</pre> 
+</div>
+</div>
+<a id="a760278ed8fa4da98f1cebb6ded38cb80" name="a760278ed8fa4da98f1cebb6ded38cb80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a760278ed8fa4da98f1cebb6ded38cb80">&#9670;&#160;</a></span>ListDir()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"> List Common.Routines.FileContentReader.ListDir </td>
+          <td>(</td>
+          <td class="paramtype">str</td>          <td class="paramname"><span class="paramname"><em>folderFullPath</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<pre class="fragment">Вывод списка файлов в каталоге
+
+Args:
+    folderFullPath (str): полный путь до каталога
+
+Returns:
+    List: список файлов
+</pre> 
+</div>
+</div>
+<hr/>Объявления и описания членов класса находятся в файле:<ul>
+<li>P:/555_LabFramework/Common/<a class="el" href="_routines_8py.html">Routines.py</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.15.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

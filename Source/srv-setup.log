@@ -1,0 +1,240 @@
+[9144|9140] [INFO] 17:07:36.207785 - {MAIN}: =====================================
+[9144|9140] [INFO] 17:07:36.208628 - {MAIN}: Started on 2024-11-01
+[9144|9140] [INFO] 17:07:36.208819 - {MAIN}: Platform: Windows 10 Version 10.0 (Release 2009, Build 19045.3448, Service Pack: 0.0) x64
+[9144|9140] [INFO] 17:07:36.209185 - {MAIN}: Setup version: 12.10.16.10140, x64
+[9144|9140] [INFO] 17:07:36.209211 - {UTILS}: Set custom DLL search order (only in system32).
+[9144|9140] [INFO] 17:07:36.209250 - {UTILS}: GetPathTo(35) started.
+[9144|9140] [INFO] 17:07:36.209356 - {UTILS}: GetPathTo(35) completed with (C:\ProgramData) result.
+[9144|9140] [DBG] 17:07:36.209756 - {updater_tools::config}: Trying load config from C:\ProgramData\Doctor Web\Updater\etc\drwupsrv.xml.new...
+[9144|9140] [DBG] 17:07:36.209969 - {updater_tools::config}: Trying load config from "config" registry value...
+[9144|9140] [DBG] 17:07:36.210336 - {updater_tools::config}: Trying load config from C:\ProgramData\Doctor Web\Updater\etc\drwupsrv.xml...
+[9144|9140] [DBG] 17:07:36.210430 - {updater_tools::config}: Trying load config from C:\ProgramData\Doctor Web\Updater\etc\drwupsrv.xml.backup...
+[9144|9140] [DBG] 17:07:36.210524 - {updater_tools::config}: Configuration is not loaded
+[9144|9140] [INFO] 17:07:36.210969 - {StandaloneSetup}: StandaloneSetup::Run(/cert fstek /distribpath "C:\Users\mihai\Downloads\drweb-12.0+fstek-4ud-av-win-server.exe") started.
+[9144|9140] [INFO] 17:07:36.210985 - {UTILS}: Dpi::Setup started.
+[9144|9140] [INFO] 17:07:36.211222 - {UTILS}: Application is Per-monitor DPI-aware
+[9144|9140] [INFO] 17:07:36.211236 - {UTILS}: Dpi::Setup completed.
+[9144|4304] [INFO] 17:07:36.225870 - {TrustedMutexCatcher}: Global\DrWebUpdaterSession_1EE377DD-AC73-47BA-98EA-26EC5BFA1126 mutex capturing process started...
+[9144|4304] [INFO] 17:07:36.226062 - {SETUP_UTILS}: Mutex created with last error: error 0: Операция успешно завершена.
+
+[9144|9140] [INFO] 17:07:36.226069 - {UTILS}: IsScreenReaderRunning() started.
+[9144|4304] [INFO] 17:07:36.226110 - {TrustedMutexCatcher}: Global\DrWebUpdaterSession_1EE377DD-AC73-47BA-98EA-26EC5BFA1126 mutex owned.
+[9144|9140] [INFO] 17:07:36.226268 - {UTILS}: IsScreenReaderRunning() completed with (false) result.
+[9144|9140] [INFO] 17:07:36.226412 - {SETUP_UTILS}: GetPathToInstallDir(Dr.Web Anti-virus for Windows Servers, false) started.
+[9144|9140] [INFO] 17:07:36.226437 - {UTILS}: RegistryIsValueExist(HKEY_LOCAL_MACHINE, "SOFTWARE\Doctor Web\Setup\Dr.Web Anti-virus for Windows Servers\Settings", "installdir", native node)
+[9144|9140] [INFO] 17:07:36.226473 - {UTILS}: GetPathTo(38, 38, "%ProgramW6432%", "ProgramFilesDir") started.
+[9144|9140] [INFO] 17:07:36.226485 - {UTILS}: GetPathTo(38) started.
+[9144|9140] [INFO] 17:07:36.226758 - {UTILS}: GetPathTo(38) completed with (C:\Program Files) result.
+[9144|9140] [INFO] 17:07:36.226775 - {UTILS}: GetPathTo(38, 38, "%ProgramW6432%", "ProgramFilesDir") completed with (C:\Program Files) result.
+[9144|9140] [INFO] 17:07:36.226783 - {SETUP_UTILS}: GetPathToInstallDir(Dr.Web Anti-virus for Windows Servers, false) completed with (C:\Program Files\DrWeb) result.
+[9144|9140] [INFO] 17:07:36.226811 - {PRE_INSTALL_API}: PreInstall::SetInstallMode started.
+[9144|9140] [INFO] 17:07:36.232681 - {PRE_INSTALL_API}: instMode = install
+[9144|9140] [INFO] 17:07:36.232702 - {PRE_INSTALL_API}: PreInstall::SetInstallMode completed.
+[9144|9140] [INFO] 17:07:36.232740 - {PRE_INSTALL_API}: SetSetupLanguageFromAgentOrDefaultPlace() started.
+[9144|9140] [INFO] 17:07:36.232753 - {PRE_INSTALL_API}: GetLanguageFromRegistryImpl(SOFTWARE\Doctor Web\Settings\Agent\Language) started.
+[9144|9140] [INFO] 17:07:36.232761 - {UTILS}: RegistryIsValueExist(HKEY_LOCAL_MACHINE, "SOFTWARE\Doctor Web\Settings\Agent", "Language", native node)
+[9144|9140] [WARNING] 17:07:36.232788 - {PRE_INSTALL_API}: Language setting not exist.
+[9144|9140] [INFO] 17:07:36.232799 - {PRE_INSTALL_API}: GetLanguageFromRegistryImpl(SOFTWARE\Doctor Web\Settings\Agent\Language) completed.
+[9144|9140] [INFO] 17:07:36.232900 - {PRE_INSTALL_API}: GetLanguageFromRegistryImpl(SOFTWARE\Doctor Web\Setup\Dr.Web Anti-virus for Windows Servers\Settings\lang) started.
+[9144|9140] [INFO] 17:07:36.232913 - {UTILS}: RegistryIsValueExist(HKEY_LOCAL_MACHINE, "SOFTWARE\Doctor Web\Setup\Dr.Web Anti-virus for Windows Servers\Settings", "lang", native node)
+[9144|9140] [WARNING] 17:07:36.232937 - {PRE_INSTALL_API}: lang setting not exist.
+[9144|9140] [INFO] 17:07:36.232948 - {PRE_INSTALL_API}: GetLanguageFromRegistryImpl(SOFTWARE\Doctor Web\Setup\Dr.Web Anti-virus for Windows Servers\Settings\lang) completed.
+[9144|9140] [INFO] 17:07:36.232954 - {PRE_INSTALL_API}: SetSetupLanguageToDetectedOrOsLanguage() started.
+[9144|9140] [WARNING] 17:07:36.232959 - {PRE_INSTALL_API}: No language detected from registry, detect OS language.
+[9144|9140] [INFO] 17:07:36.232964 - {PRE_INSTALL_API}: DetectOsLanguage started.
+[9144|9140] [INFO] 17:07:36.232987 - {PRE_INSTALL_API}: Detected locale: ru-RU (1049)
+[9144|9140] [INFO] 17:07:36.233013 - {PRE_INSTALL_API}: DetectOsLanguage completed with (ru) result.
+[9144|9140] [INFO] 17:07:36.233023 - {PRE_INSTALL_API}: Detected language: "ru"
+[9144|9140] [INFO] 17:07:36.233035 - {UTILS}: GetResource started
+[9144|9140] [INFO] 17:07:36.233107 - {UTILS}: GetResource completed
+[9144|9140] [INFO] 17:07:36.234660 - {PRE_INSTALL_API}: Setup language: "ru"
+[9144|9140] [INFO] 17:07:36.234676 - {PRE_INSTALL_API}: SetSetupLanguageToDetectedOrOsLanguage() completed.
+[9144|9140] [INFO] 17:07:36.234682 - {PRE_INSTALL_API}: SetSetupLanguageFromAgentOrDefaultPlace() completed.
+[9144|9140] [INFO] 17:07:36.234696 - {PRE_INSTALL_API}: PreInstall::ParseParams started.
+[9144|9140] [INFO] 17:07:36.234757 - {PRE_INSTALL_API}: ======= Params parsed from command line =======
+[9144|9140] [INFO] 17:07:36.234770 - {PRE_INSTALL_API}: cert = fstek
+[9144|9140] [INFO] 17:07:36.234776 - {PRE_INSTALL_API}: distribpath = C:\Users\mihai\Downloads\drweb-12.0+fstek-4ud-av-win-server.exe
+[9144|9140] [INFO] 17:07:36.234781 - {PRE_INSTALL_API}: ===============================================
+[9144|9140] [INFO] 17:07:36.235180 - {PRE_INSTALL_API}: =============== InstallSettings ===============
+[9144|9140] [INFO] 17:07:36.235223 - {PRE_INSTALL_API}: agreeToLicense = no
+[9144|9140] [INFO] 17:07:36.235230 - {PRE_INSTALL_API}: allowUiAccessibility = no
+[9144|9140] [INFO] 17:07:36.235235 - {PRE_INSTALL_API}: blockEmulateUserActions = no
+[9144|9140] [INFO] 17:07:36.235239 - {PRE_INSTALL_API}: cert = fstek
+[9144|9140] [INFO] 17:07:36.235246 - {PRE_INSTALL_API}: cmdParams = ********
+[9144|9140] [INFO] 17:07:36.235251 - {PRE_INSTALL_API}: compatibilityProductId = sa_srv_12_5
+[9144|9140] [INFO] 17:07:36.235256 - {PRE_INSTALL_API}: compatibleVersion = 9
+[9144|9140] [INFO] 17:07:36.235260 - {PRE_INSTALL_API}: createDesktopShortcut = yes
+[9144|9140] [INFO] 17:07:36.235265 - {PRE_INSTALL_API}: createStartShortcut = yes
+[9144|9140] [INFO] 17:07:36.235270 - {PRE_INSTALL_API}: distribVersion = 12.0.6.08220
+[9144|9140] [INFO] 17:07:36.235275 - {PRE_INSTALL_API}: distribpath = C:\Users\mihai\Downloads\drweb-12.0+fstek-4ud-av-win-server.exe
+[9144|9140] [INFO] 17:07:36.235280 - {PRE_INSTALL_API}: execType = execute
+[9144|9140] [INFO] 17:07:36.235285 - {PRE_INSTALL_API}: instMode = install
+[9144|9140] [INFO] 17:07:36.235289 - {PRE_INSTALL_API}: installDirFolderName = DrWeb
+[9144|9140] [INFO] 17:07:36.235294 - {PRE_INSTALL_API}: installFirewall = no
+[9144|9140] [INFO] 17:07:36.235298 - {PRE_INSTALL_API}: installdir = C:\Program Files\DrWeb
+[9144|9140] [INFO] 17:07:36.235303 - {PRE_INSTALL_API}: keyFileType = absent
+[9144|9140] [INFO] 17:07:36.235308 - {PRE_INSTALL_API}: lang = ru
+[9144|9140] [INFO] 17:07:36.235313 - {PRE_INSTALL_API}: logname = srv-setup.log
+[9144|9140] [INFO] 17:07:36.235317 - {PRE_INSTALL_API}: prevInstalldir = 
+[9144|9140] [INFO] 17:07:36.235322 - {PRE_INSTALL_API}: productGUID = {7DE3BDD6-C9D4-4A51-A9F5-25727845E1FE}
+[9144|9140] [INFO] 17:07:36.235327 - {PRE_INSTALL_API}: productName = Dr.Web Anti-virus for Windows Servers
+[9144|9140] [INFO] 17:07:36.235369 - {PRE_INSTALL_API}: proxyAuthType = None
+[9144|9140] [INFO] 17:07:36.235378 - {PRE_INSTALL_API}: proxyPort = 80
+[9144|9140] [INFO] 17:07:36.235383 - {PRE_INSTALL_API}: reboot = no
+[9144|9140] [INFO] 17:07:36.235388 - {PRE_INSTALL_API}: reltype = release
+[9144|9140] [INFO] 17:07:36.235392 - {PRE_INSTALL_API}: removeOnly = no
+[9144|9140] [INFO] 17:07:36.235397 - {PRE_INSTALL_API}: saveBackups = yes
+[9144|9140] [INFO] 17:07:36.235401 - {PRE_INSTALL_API}: saveQuarantine = yes
+[9144|9140] [INFO] 17:07:36.235408 - {PRE_INSTALL_API}: saveSettings = yes
+[9144|9140] [INFO] 17:07:36.235413 - {PRE_INSTALL_API}: settingsFileValid = no
+[9144|9140] [INFO] 17:07:36.235417 - {PRE_INSTALL_API}: setupVersion = 12.10.16.10140
+[9144|9140] [INFO] 17:07:36.235422 - {PRE_INSTALL_API}: shortProductName = drweb-win-srv
+[9144|9140] [INFO] 17:07:36.235426 - {PRE_INSTALL_API}: showLog = no
+[9144|9140] [INFO] 17:07:36.235431 - {PRE_INSTALL_API}: silent = no
+[9144|9140] [INFO] 17:07:36.235436 - {PRE_INSTALL_API}: supportdir = C:\Users\mihai\AppData\Local\Temp\64FEB48C-31BFF94A-193BBEA0-DF841A2C\supportdir
+[9144|9140] [INFO] 17:07:36.235441 - {PRE_INSTALL_API}: update = yes
+[9144|9140] [INFO] 17:07:36.235446 - {PRE_INSTALL_API}: updaterProductName = av-for-win-servers
+[9144|9140] [INFO] 17:07:36.235450 - {PRE_INSTALL_API}: upgradeCode = {B10433B4-28BF-42a8-80CA-A29FF3FF8865}
+[9144|9140] [INFO] 17:07:36.235455 - {PRE_INSTALL_API}: useCloud = no
+[9144|9140] [INFO] 17:07:36.235459 - {PRE_INSTALL_API}: useProxy = no
+[9144|9140] [INFO] 17:07:36.235464 - {PRE_INSTALL_API}: zone = srv-zone
+[9144|9140] [INFO] 17:07:36.235469 - {PRE_INSTALL_API}: zoneRevision = 9
+[9144|9140] [INFO] 17:07:36.235473 - {PRE_INSTALL_API}: zoneVersion = 90
+[9144|9140] [INFO] 17:07:36.235481 - {PRE_INSTALL_API}: ===============================================
+[9144|9140] [INFO] 17:07:36.235486 - {PRE_INSTALL_API}: PreInstall::ParseParams completed.
+[9144|9140] [INFO] 17:07:36.235501 - {StandaloneSetup}: ProcessParsedParams() started.
+[9144|9140] [INFO] 17:07:36.235552 - {StandaloneSetup}: ProcessParsedParams() completed.
+[9144|4516] [INFO] 17:07:36.245457 - {UTILS}: RegistryGetValue(HKEY_LOCAL_MACHINE, "SOFTWARE\Doctor Web\Settings\Agent\theme", "type", ..., native node)
+[9144|4516] [WARNING] 17:07:36.245519 - {UTILS}: RegOpenKeyEx failed: error 2: Не удается найти указанный файл.
+
+[9144|4516] [INFO] 17:07:36.245540 - {GUI}: GUIWindow::Init started.
+[9144|4516] [INFO] 17:07:36.638072 - {UTILS}: RegistryGetValue(HKEY_CURRENT_USER, "Software\Microsoft\Windows\CurrentVersion\Themes\Personalize", "AppsUseLightTheme", ..., native node)
+[9144|4516] [INFO] 17:07:37.016511 - {GUI}: GUIWindow::Init completed.
+[9144|4516] [INFO] 17:07:37.016546 - {GUI}: BaseGUIWindow::Run started.
+[9144|4516] [INFO] 17:07:37.016553 - {GUI}: GUIWindow::GUIInitialization started.
+[9144|9140] [INFO] 17:07:37.016755 - {PRE_INSTALL_API}: DisableRunningDistribCopiesFunction module function starting...
+[9144|9140] [INFO] 17:07:37.016782 - {PRE_INSTALL_API}: IsInstallationAlreadyRunning started.
+[9144|9140] [INFO] 17:07:37.016834 - {SETUP_UTILS}: Mutex created with last error: error 0: Операция успешно завершена.
+
+[9144|9140] [INFO] 17:07:37.016843 - {PRE_INSTALL_API}: Another copies of program is not running.
+[9144|9140] [INFO] 17:07:37.016851 - {PRE_INSTALL_API}: IsInstallationAlreadyRunning completed with (false) result.
+[9144|9140] [INFO] 17:07:37.016856 - {MODULE_FUNCTION}: Another installation is not present
+[9144|9140] [INFO] 17:07:37.016861 - {PRE_INSTALL_API}: DisableRunningDistribCopiesFunction module function completed.
+[9144|9140] [INFO] 17:07:37.016907 - {PRE_INSTALL_API}: IncompatibleCpuCheckFunction module function starting...
+[9144|9140] [INFO] 17:07:37.016946 - {PRE_INSTALL_API}: IncompatibleCpuCheckFunction module function completed.
+[9144|9140] [INFO] 17:07:37.016960 - {PRE_INSTALL_API}: OSRequirementsCheckFunction module function starting...
+[9144|9140] [INFO] 17:07:37.017095 - {MODULE_FUNCTION}: Platform: Windows 10 Version 10.0 (Release 2009, Build 19045.3448, Service Pack: 0.0) x64
+[9144|9140] [ERROR] 17:07:37.017120 - {MODULE_FUNCTION}: Not supported Windows version.
+[9144|4516] [INFO] 17:07:37.017231 - {GUI}: GUIWindow::InitHTMLDefaultSettings started.
+[9144|4516] [INFO] 17:07:37.017263 - {FreeSpaceChecker}: CheckFreeSpace() started.
+[9144|4516] [INFO] 17:07:37.017273 - {UTILS}: GetPathTo(35) started.
+[9144|4516] [INFO] 17:07:37.018406 - {UTILS}: GetPathTo(35) completed with (C:\ProgramData) result.
+[9144|4516] [INFO] 17:07:37.018808 - {FreeSpaceChecker}: GetSizeDifferenceInRepo() started.
+[9144|4516] [INFO] 17:07:37.020142 - {FreeSpaceChecker}: CountDistribZoneSize(C:\Users\mihai\Downloads\drweb-12.0+fstek-4ud-av-win-server.exe) started.
+[9144|4516] [INFO] 17:07:37.876346 - {FreeSpaceChecker}: CountDistribZoneSize(C:\Users\mihai\Downloads\drweb-12.0+fstek-4ud-av-win-server.exe) completed with (290888251) result.
+[9144|4516] [INFO] 17:07:37.876374 - {FreeSpaceChecker}: GetSizeDifferenceInRepo() completed with (290888251) result.
+[9144|4516] [INFO] 17:07:37.922179 - {SETUP_UTILS}: GetOverlayUnpackedProductsSize("C:\Users\mihai\Downloads\drweb-12.0+fstek-4ud-av-win-server.exe", false) started.
+[9144|4516] [INFO] 17:07:38.498721 - {SETUP_UTILS}: GetOverlayUnpackedProductsSize("C:\Users\mihai\Downloads\drweb-12.0+fstek-4ud-av-win-server.exe", false) completed.
+[9144|4516] [INFO] 17:07:38.498773 - {SETUP_UTILS}: 
+Components size:
+	amsi-plugin = 1112291 bytes
+	av-engine = 485176168 bytes
+	av-service = 20791354 bytes
+	cloud-client = 15144727 bytes
+	device-guard = 340186 bytes
+	drwbase = 5979588 bytes
+	dwl = 2430852 bytes
+	dwprot = 1676070 bytes
+	elam = 37578 bytes
+	email-templates = 255141 bytes
+	help-srv = 9092932 bytes
+	scan-engine = 12535651 bytes
+	scanner-gui-console = 13901751 bytes
+	shell-ext = 2721523 bytes
+	spider-agent = 24847072 bytes
+	spider-g3 = 427559 bytes
+	sysinfo = 19833106 bytes
+	traffic-hook = 581083 bytes
+	updater = 9499084 bytes
+	win-srv-setup = 12926393 bytes
+	wsc-service = 6346501 bytes
+
+[9144|4516] [INFO] 17:07:38.498787 - {UTILS}: GetPathTo(43, 43, "%CommonProgramW6432%", "CommonFilesDir") started.
+[9144|4516] [INFO] 17:07:38.498794 - {UTILS}: GetPathTo(43) started.
+[9144|4516] [INFO] 17:07:38.499059 - {UTILS}: GetPathTo(43) completed with (C:\Program Files\Common Files) result.
+[9144|4516] [INFO] 17:07:38.499075 - {UTILS}: GetPathTo(43, 43, "%CommonProgramW6432%", "CommonFilesDir") completed with (C:\Program Files\Common Files) result.
+[9144|4516] [INFO] 17:07:38.499302 - {FreeSpaceChecker}: C:\	34576Mb free; 1080Mb required.
+[9144|4516] [INFO] 17:07:38.499318 - {FreeSpaceChecker}: CheckFreeSpace() completed with (true) result.
+[9144|4516] [INFO] 17:07:38.513211 - {GUI}: GUIWindow::InitHTMLDefaultSettings completed.
+[9144|4516] [INFO] 17:07:38.513245 - {GUI}: InitStepsFocuses started.
+[9144|4516] [INFO] 17:07:38.513638 - {GUI}: InitStepsFocuses completed.
+[9144|4516] [INFO] 17:07:38.513648 - {GUI}: GoToStep() started.
+[9144|4516] [INFO] 17:07:38.513655 - {GUI}: Step name: error-step
+[9144|4516] [INFO] 17:07:38.513989 - {GUI}: SetFocusForCurrentStep started.
+[9144|4516] [INFO] 17:07:38.514040 - {GUI}: Cannot find current step.
+[9144|4516] [INFO] 17:07:38.514047 - {GUI}: SetFocusForCurrentStep completed.
+[9144|4516] [INFO] 17:07:38.709272 - {GUI}: GoToStep() completed.
+[9144|4516] [INFO] 17:07:38.776026 - {GUI}: GUIWindow::GUIInitialization completed.
+[9144|4516] [INFO] 17:07:47.877508 - {GUI}: ProcessWMClose started.
+[9144|4516] [INFO] 17:07:47.923242 - {GUI}: ProcessWMClose completed.
+[9144|4516] [INFO] 17:07:47.923500 - {GUI}: BaseGUIWindow::Run completed.
+[9144|9140] [ERROR] 17:07:47.924884 - {PRE_INSTALL_API}: OSRequirementsCheckFunction module function failed.
+[9144|9140] [INFO] 17:07:47.925000 - {POST_INSTALL_API}: CleanTempFiles() started.
+[9144|9140] [INFO] 17:07:47.925011 - {POST_INSTALL_API}: CleanTempFiles() completed.
+[9144|9140] [INFO] 17:07:47.925018 - {POST_INSTALL_API}: CleanRegistryKeys() started.
+[9144|9140] [INFO] 17:07:47.925084 - {POST_INSTALL_API}: CleanRegistryKeys() completed.
+[9144|9140] [INFO] 17:07:47.925093 - {POST_INSTALL_API}: DumpInstallSettings started.
+[9144|9140] [INFO] 17:07:47.925098 - {POST_INSTALL_API}: installSettings:
+[9144|9140] [INFO] 17:07:47.925138 - {POST_INSTALL_API}: agreeToLicense = no
+[9144|9140] [INFO] 17:07:47.925151 - {POST_INSTALL_API}: allowUiAccessibility = no
+[9144|9140] [INFO] 17:07:47.925180 - {POST_INSTALL_API}: blockEmulateUserActions = no
+[9144|9140] [INFO] 17:07:47.925185 - {POST_INSTALL_API}: cert = fstek
+[9144|9140] [INFO] 17:07:47.925190 - {POST_INSTALL_API}: cmdParams = ********
+[9144|9140] [INFO] 17:07:47.925196 - {POST_INSTALL_API}: compatibilityProductId = sa_srv_12_5
+[9144|9140] [INFO] 17:07:47.925202 - {POST_INSTALL_API}: compatibleVersion = 9
+[9144|9140] [INFO] 17:07:47.925206 - {POST_INSTALL_API}: createDesktopShortcut = yes
+[9144|9140] [INFO] 17:07:47.925212 - {POST_INSTALL_API}: createStartShortcut = yes
+[9144|9140] [INFO] 17:07:47.925217 - {POST_INSTALL_API}: distribVersion = 12.0.6.08220
+[9144|9140] [INFO] 17:07:47.925252 - {POST_INSTALL_API}: distribpath = C:\Users\mihai\Downloads\drweb-12.0+fstek-4ud-av-win-server.exe
+[9144|9140] [INFO] 17:07:47.925257 - {POST_INSTALL_API}: execType = execute
+[9144|9140] [INFO] 17:07:47.925262 - {POST_INSTALL_API}: instMode = install
+[9144|9140] [INFO] 17:07:47.925287 - {POST_INSTALL_API}: installDirFolderName = DrWeb
+[9144|9140] [INFO] 17:07:47.925292 - {POST_INSTALL_API}: installFirewall = no
+[9144|9140] [INFO] 17:07:47.925297 - {POST_INSTALL_API}: installdir = C:\Program Files\DrWeb
+[9144|9140] [INFO] 17:07:47.925340 - {POST_INSTALL_API}: keyFileType = absent
+[9144|9140] [INFO] 17:07:47.925346 - {POST_INSTALL_API}: lang = ru
+[9144|9140] [INFO] 17:07:47.925351 - {POST_INSTALL_API}: logname = srv-setup.log
+[9144|9140] [INFO] 17:07:47.925355 - {POST_INSTALL_API}: prevInstalldir = 
+[9144|9140] [INFO] 17:07:47.925360 - {POST_INSTALL_API}: productGUID = {7DE3BDD6-C9D4-4A51-A9F5-25727845E1FE}
+[9144|9140] [INFO] 17:07:47.925365 - {POST_INSTALL_API}: productName = Dr.Web Anti-virus for Windows Servers
+[9144|9140] [INFO] 17:07:47.925370 - {POST_INSTALL_API}: proxyAuthType = None
+[9144|9140] [INFO] 17:07:47.925374 - {POST_INSTALL_API}: proxyPort = 80
+[9144|9140] [INFO] 17:07:47.925379 - {POST_INSTALL_API}: reboot = no
+[9144|9140] [INFO] 17:07:47.925384 - {POST_INSTALL_API}: reltype = release
+[9144|9140] [INFO] 17:07:47.925389 - {POST_INSTALL_API}: removeOnly = no
+[9144|9140] [INFO] 17:07:47.925393 - {POST_INSTALL_API}: saveBackups = yes
+[9144|9140] [INFO] 17:07:47.925398 - {POST_INSTALL_API}: saveQuarantine = yes
+[9144|9140] [INFO] 17:07:47.925402 - {POST_INSTALL_API}: saveSettings = yes
+[9144|9140] [INFO] 17:07:47.925407 - {POST_INSTALL_API}: settingsFileValid = no
+[9144|9140] [INFO] 17:07:47.925412 - {POST_INSTALL_API}: setupVersion = 12.10.16.10140
+[9144|9140] [INFO] 17:07:47.925417 - {POST_INSTALL_API}: shortProductName = drweb-win-srv
+[9144|9140] [INFO] 17:07:47.925423 - {POST_INSTALL_API}: showLog = no
+[9144|9140] [INFO] 17:07:47.925428 - {POST_INSTALL_API}: silent = no
+[9144|9140] [INFO] 17:07:47.925434 - {POST_INSTALL_API}: supportdir = C:\Users\mihai\AppData\Local\Temp\64FEB48C-31BFF94A-193BBEA0-DF841A2C\supportdir
+[9144|9140] [INFO] 17:07:47.925438 - {POST_INSTALL_API}: update = yes
+[9144|9140] [INFO] 17:07:47.925443 - {POST_INSTALL_API}: updaterProductName = av-for-win-servers
+[9144|9140] [INFO] 17:07:47.925448 - {POST_INSTALL_API}: upgradeCode = {B10433B4-28BF-42a8-80CA-A29FF3FF8865}
+[9144|9140] [INFO] 17:07:47.925453 - {POST_INSTALL_API}: useCloud = no
+[9144|9140] [INFO] 17:07:47.925458 - {POST_INSTALL_API}: useProxy = no
+[9144|9140] [INFO] 17:07:47.925462 - {POST_INSTALL_API}: zone = srv-zone
+[9144|9140] [INFO] 17:07:47.925466 - {POST_INSTALL_API}: zoneRevision = 9
+[9144|9140] [INFO] 17:07:47.925471 - {POST_INSTALL_API}: zoneVersion = 90
+[9144|9140] [INFO] 17:07:47.925480 - {POST_INSTALL_API}: DumpInstallSettings completed.
+[9144|9140] [ERROR] 17:07:47.925486 - {POST_INSTALL_API}: Installation of Dr.Web Anti-virus for Windows Servers failed!
+[9144|9140] [INFO] 17:07:47.925499 - {UTILS}: RegistryIsKeyExist(HKEY_LOCAL_MACHINE, "SOFTWARE\Doctor Web\Settings\av-service\reboot_key", native node)
+[9144|9140] [INFO] 17:07:47.925553 - {CommonData}: CommonData::SetReturnCode(7) started.
+[9144|9140] [INFO] 17:07:47.925564 - {CommonData}: Return code set.
+[9144|9140] [INFO] 17:07:47.925569 - {CommonData}: CommonData::SetReturnCode(7) completed.
+[9144|9140] [INFO] 17:07:47.925590 - {TrustedMutexCatcher}: Global\DrWebUpdaterSession_1EE377DD-AC73-47BA-98EA-26EC5BFA1126 mutex released.
+[9144|9140] [INFO] 17:07:47.925600 - {StandaloneSetup}: StandaloneSetup::Run(/cert fstek /distribpath "C:\Users\mihai\Downloads\drweb-12.0+fstek-4ud-av-win-server.exe") completed with (7) result.
+[9144|9140] [INFO] 17:07:47.925609 - {MAIN}: Return code: 7 (failed, reboot not required)
