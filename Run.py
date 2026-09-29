@@ -6,18 +6,22 @@
 
 import sys,asyncio
 from Interfaces.Main import Interface
+import time
+#--------------------------------------------------------------------------------
+async def main() -> None:
+    # Синхронная подготовка: журнал, настройки, каталоги
+    appEntryPoint:Interface = Interface()
+    # Асинхронная работа: разбор аргументов командной строки и запуск Solver
+    await appEntryPoint.Run()
+    print('Работа завершена успешно')
 
 #--------------------------------------------------------------------------------
-def main() -> None:
-    loop = asyncio.new_event_loop()
-    asyncio.set_event_loop(loop)
-    appEntryPoint:Interface = Interface()
-    # Обеспечиваем асинхронный цикл работы
+if __name__ == '__main__':
+   # asyncio.run() сам создаёт цикл событий, выполняет корутину и закрывает цикл
+    start = time.time()
     try:
-        loop.run_until_complete(appEntryPoint.Run()) 
-        sys.exit(0)
-    except asyncio.exceptions.CancelledError:
+        asyncio.run(main())
+    except asyncio.exceptions.CancelledError, Exception:
         sys.exit(-1)
-
-if __name__ == '__main__': 
-    main()               
+    print('Время выполнения: ', time.time() - start)
+    sys.exit(0)

@@ -8,6 +8,7 @@ from typing import Any,AnyStr,Dict
 from datetime import datetime
 import argparse
 
+
 from Common.Routines import FileContentReader
 from Interfaces.LogInterface import LogInterface
 from Interfaces.SettingsInterface import SettingsInterface
@@ -37,6 +38,7 @@ class Interface:
         # Параметры из настроек
         self.__caseFolder:str = self.__settingsInterface.GetSettingValueByName('CaseFolder')
         self.__tempFolder:str = self.__settingsInterface.GetSettingValueByName('TemporaryFilesFolder')
+        self.__modelFolder:str = self.__settingsInterface.GetSettingValueByName('ModelFilesFolder')
         
         # Параметры запуска
         self.__dataSourceFullPath:str = None
@@ -136,11 +138,12 @@ class Interface:
         
         # Инцициализация модуля-загрузчика логики обработки данных
         self._solver = Solver(
-            self.GetSettings,
-            self.__appStartDateTime,
-            self.interfaces,
-            self.__dataSourceFullPath,
-            self.__outputFileName
+            settings=self.GetSettings,
+            appStartDateTime=self.__appStartDateTime,
+            interfaces=self.interfaces,
+            dataSourcePath=self.__dataSourceFullPath,
+            dataModelsFolder=self.__modelFolder,
+            outputFileName=self.__outputFileName
         )
                             
         # Запуск модуля-загрузчика логики обработки данных                     

@@ -21,7 +21,7 @@ class Solver:
     
     Класс также имеет метод RedrawUI, который используется для обновления пользовательского интерфейса приложения - унифицированно выводит результат.
     """    
-    def __init__(self,settings:dict,appStartDateTime:str,interfaces:dict,dataSourcePath:str,outputFileName:str):  
+    def __init__(self,settings:dict,appStartDateTime:str,interfaces:dict,dataSourcePath:str,outputFileName:str,dataModelsFolder:str):  
         self._cwd:str = os.getcwd()
         
         # Настройки
@@ -45,7 +45,8 @@ class Solver:
         # Каталог с делами
         self._caseName:str = appStartDateTime
         self._caseFolder:str = self._settings.get('CaseFolder')
-        
+        # Каталог с моделями
+        self._modelFolder:str = dataModelsFolder
         # Имя файла с результатами
         self._outputFileNameBasePart:str = outputFileName
         
@@ -109,11 +110,12 @@ class Solver:
         """
         Метод определяет модули в каталоге Modules, для каждого подготавливает параметры в нужном виде и вызывает метод _ProcessTask
         """        
-        modulesPath:str = os.path.join(self._cwd,'Modules')
+        modulesPath:str = os.path.join(self._cwd,self._modelFolder)
         
         modules:list = self._fcr.ListDir(modulesPath)
+        print(modules)
         for item in modules:
-            moduleFullPath = os.path.join(self._cwd,'Modules',item)
+            moduleFullPath = os.path.join(self._cwd,self._modelFolder,item)
         
             # Параметры модуля   
             self._moduleParameters.update({'MODULENAME':item})
@@ -123,10 +125,10 @@ class Solver:
         
             # Соединение с БД и интерфейс вывода информации
             dbConnection = SQLiteDatabaseInterface(
-                os.path.join(self._caseFolder,self._caseName,self._moduleParameters['OUTPUTFILENAME']),
-                self._log,
-                item,
-                self._moduleParameters['RAMPROCESSING']
+                dbPath=os.path.join(self._caseFolder,self._caseName,self._moduleParameters['OUTPUTFILENAME']),
+                log=self._log,
+                moduleName=item,
+                ramProcessing=self._moduleParameters['RAMPROCESSING']
                 )
             
             outputWriter = SQLiteDBOutputWriter(
@@ -143,7 +145,7 @@ class Solver:
             self._moduleParameters.update({'DBCONNECTION':dbConnection})
             self._moduleParameters.update({'OUTPUTWRITER':outputWriter})
             
-            moduleResult = await self._ProcessTask(moduleFullPath,'Parser.py')
+            moduleResult = await self._ProcessTask(modulePath=moduleFullPath, fileName='Parser.py')
             
             await self._redrawUIMethod(f'Завершена работа модуля: {moduleResult}',100)
         

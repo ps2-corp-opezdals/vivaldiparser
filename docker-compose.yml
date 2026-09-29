@@ -1,0 +1,20 @@
+services:
+  labframework:
+    build: .
+    image: cfir-labframework:1.0
+    container_name: cfir-labframework
+    # Ядра и память для контейнера. Значения не должны превышать то,
+    # что выделено виртуальной машине Docker Desktop
+    # (Settings -> Resources -> CPUs / Memory), иначе ограничение
+    # упрётся в потолок виртуалки МОЛЧА.
+    cpus: "4"
+    mem_limit: 4g
+    volumes:
+      # Улики — только чтение. Каркас не должен их менять.
+      - ./Source:/app/Source:ro
+      # Результаты, логи и временные файлы — наружу
+      - ./Cases:/app/Cases
+      - ./Logs:/app/Logs
+      - ./Temp:/app/Temp
+    # Удалять контейнер после прогона, чтобы не копить мусор
+    restart: "no"

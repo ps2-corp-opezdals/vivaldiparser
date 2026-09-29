@@ -1,0 +1,13 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.sqlite
+*.sqlite-journal
+Cases/
+Logs/
+Temp/
+Source/
+doc/html/
+.env
+.DS_Store

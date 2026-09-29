@@ -1,4 +1,5 @@
 {
 	"CaseFolder":"Cases",
-	"TemporaryFilesFolder":"Temp"
+	"TemporaryFilesFolder":"Temp",
+	"ModelFilesFolder":"Models"
 }

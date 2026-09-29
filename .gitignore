@@ -1,5 +1,9 @@
-__pycache__
+__pycache__/
+*.py[cod]
+.venv/
+venv/
 /Temp/*
 /Logs/*
 /Cases/*
-
+doc/html/
+.DS_Store
