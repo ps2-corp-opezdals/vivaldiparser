@@ -1,0 +1,450 @@
+{
+   "checksum": "859edacf8b054c0c9f0d86b1699ad225",
+   "roots": {
+      "bookmark_bar": {
+         "children": [
+            {
+               "children": [
+                  {
+                     "date_added": "13435307403752638",
+                     "date_last_used": "0",
+                     "guid": "b095403c-0348-4d47-b03e-c9b408bfc92b",
+                     "id": "7",
+                     "meta_info": {
+                        "DisplayURL": "https://vivaldi.com/",
+                        "Partner": "b095403c-0348-4d47-b03e-c9b408bfc92b",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_vivaldi.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403752677",
+                     "date_last_used": "0",
+                     "guid": "848a4ba4-5f69-4a38-8ccc-d0cea9fe0709",
+                     "id": "8",
+                     "meta_info": {
+                        "DisplayURL": "https://social.vivaldi.net/",
+                        "Partner": "848a4ba4-5f69-4a38-8ccc-d0cea9fe0709",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_vivaldi_social.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403752706",
+                     "date_last_used": "0",
+                     "guid": "cbe202d3-71df-4491-a825-448e4d745e43",
+                     "id": "9",
+                     "meta_info": {
+                        "Description": "Vivaldi, браузер, портал, сообщество",
+                        "DisplayURL": "https://vivaldi.net/",
+                        "Partner": "cbe202d3-71df-4491-a825-448e4d745e43",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_vivaldi_community.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403752742",
+                     "date_last_used": "0",
+                     "guid": "2016b066-cae6-4d96-a9ae-0f95258f2000",
+                     "id": "10",
+                     "meta_info": {
+                        "DisplayURL": "https://yandex.ru/",
+                        "Partner": "2016b066-cae6-4d96-a9ae-0f95258f2000",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_ru_yandex.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403752769",
+                     "date_last_used": "0",
+                     "guid": "141663a9-c661-4478-9199-dcb1b241b1f4",
+                     "id": "11",
+                     "meta_info": {
+                        "Description": "Блог, IT, информационные технологии, программирование",
+                        "DisplayURL": "https://habr.com/",
+                        "Partner": "141663a9-c661-4478-9199-dcb1b241b1f4",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_habr.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403752804",
+                     "date_last_used": "0",
+                     "guid": "10415f5d-2e0c-4f08-8e49-23fcd2de0943",
+                     "id": "12",
+                     "meta_info": {
+                        "DisplayURL": "https://vivaldi.com/game",
+                        "Partner": "10415f5d-2e0c-4f08-8e49-23fcd2de0943",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_vivaldia_games.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  }
+               ],
+               "date_added": "13435307403752572",
+               "date_last_used": "0",
+               "date_modified": "13435307403752804",
+               "guid": "e5c019f8-c8a4-403c-99c8-d3502d7d09b3",
+               "id": "6",
+               "meta_info": {
+                  "Partner": "e5c019f8-c8a4-403c-99c8-d3502d7d09b3",
+                  "Speeddial": "true"
+               },
+               "name": "Общие",
+               "type": "folder"
+            },
+            {
+               "children": [
+                  {
+                     "date_added": "13435307403752842",
+                     "date_last_used": "0",
+                     "guid": "0efbb5fb-d366-4a91-95b1-b5690a0cf0ef",
+                     "id": "14",
+                     "meta_info": {
+                        "DisplayURL": "https://www.aliexpress.com/",
+                        "Partner": "0efbb5fb-d366-4a91-95b1-b5690a0cf0ef",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_aliexpress.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  }
+               ],
+               "date_added": "13435307403752831",
+               "date_last_used": "0",
+               "date_modified": "13435307403752842",
+               "guid": "7dc00b6d-b26b-4371-83cb-2cd63274b9b8",
+               "id": "13",
+               "meta_info": {
+                  "Partner": "7dc00b6d-b26b-4371-83cb-2cd63274b9b8",
+                  "Speeddial": "true"
+               },
+               "name": "Покупки",
+               "type": "folder"
+            },
+            {
+               "children": [
+                  {
+                     "date_added": "13435307403752886",
+                     "date_last_used": "0",
+                     "guid": "1ae91658-7fed-46d5-9652-ecb063628d57",
+                     "id": "16",
+                     "meta_info": {
+                        "Description": "путешествия, отели, бронирование",
+                        "DisplayURL": "https://ostrovok.ru/",
+                        "Partner": "1ae91658-7fed-46d5-9652-ecb063628d57",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_ru_ostrovok.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403752925",
+                     "date_last_used": "0",
+                     "guid": "1f52f61e-8617-4a84-b350-a167e9233202",
+                     "id": "17",
+                     "meta_info": {
+                        "Description": "путешествия, отели, бронирование",
+                        "DisplayURL": "https://travel.yandex.ru/",
+                        "Partner": "1f52f61e-8617-4a84-b350-a167e9233202",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_yandex_travel.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403752962",
+                     "date_last_used": "0",
+                     "guid": "fe91462d-fdb2-40b6-aaf4-0e91d77aebf9",
+                     "id": "18",
+                     "meta_info": {
+                        "Description": "путешествия, отели, бронирование",
+                        "DisplayURL": "https://www.aviasales.ru/",
+                        "Partner": "fe91462d-fdb2-40b6-aaf4-0e91d77aebf9",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_aviasales.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403752991",
+                     "date_last_used": "0",
+                     "guid": "3ae9de13-ec1b-4760-9eb9-0bd3be27005d",
+                     "id": "19",
+                     "meta_info": {
+                        "Description": "путешествия, отели, бронирование",
+                        "DisplayURL": "https://otello.ru/",
+                        "Partner": "3ae9de13-ec1b-4760-9eb9-0bd3be27005d",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_ru_otello.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403753036",
+                     "date_last_used": "0",
+                     "guid": "37ca0399-d4b3-44f8-9fa8-5e678c59aed5",
+                     "id": "20",
+                     "meta_info": {
+                        "Description": "путешествия, отели, бронирование",
+                        "DisplayURL": "https://www.trip.com/",
+                        "Partner": "37ca0399-d4b3-44f8-9fa8-5e678c59aed5",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_trip.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403753065",
+                     "date_last_used": "0",
+                     "guid": "25672435-2187-4c7b-aacc-8ca9c75e69b5",
+                     "id": "21",
+                     "meta_info": {
+                        "Description": "путешествия, отели, бронирование",
+                        "DisplayURL": "https://www.tripadvisor.com/",
+                        "Partner": "25672435-2187-4c7b-aacc-8ca9c75e69b5",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_tripadvisor.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403753097",
+                     "date_last_used": "0",
+                     "guid": "6dafc780-86dc-40e6-ac81-92b033fd8083",
+                     "id": "22",
+                     "meta_info": {
+                        "Description": "путешествия, отели, бронирование",
+                        "DisplayURL": "https://www.getyourguide.com/",
+                        "Partner": "6dafc780-86dc-40e6-ac81-92b033fd8083",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_getyourguide.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  }
+               ],
+               "date_added": "13435307403752870",
+               "date_last_used": "0",
+               "date_modified": "13435307403753097",
+               "guid": "0f0a0d3a-bf40-4367-a65c-ed43f85888ed",
+               "id": "15",
+               "meta_info": {
+                  "Partner": "0f0a0d3a-bf40-4367-a65c-ed43f85888ed",
+                  "Speeddial": "true"
+               },
+               "name": "Туризм",
+               "type": "folder"
+            },
+            {
+               "children": [
+                  {
+                     "children": [
+                        {
+                           "date_added": "13435307403753156",
+                           "date_last_used": "0",
+                           "guid": "a91e4453-0a84-4a58-be63-eb3d7c257c35",
+                           "id": "25",
+                           "meta_info": {
+                              "Description": "Vivaldi, браузер",
+                              "DisplayURL": "https://vivaldi.com/features",
+                              "Partner": "a91e4453-0a84-4a58-be63-eb3d7c257c35",
+                              "Thumbnail": "/resources/sd_thumbnails/sd_vivaldi.png"
+                           },
+                           "name": "Bookmark",
+                           "type": "url",
+                           "url": "https://site.invalid/"
+                        },
+                        {
+                           "date_added": "13435307403753190",
+                           "date_last_used": "0",
+                           "guid": "eb5c2f32-c648-4f69-a875-472da896d50b",
+                           "id": "26",
+                           "meta_info": {
+                              "DisplayURL": "https://webmail.vivaldi.net/",
+                              "Partner": "eb5c2f32-c648-4f69-a875-472da896d50b",
+                              "Thumbnail": "/resources/sd_thumbnails/sd_webmail.png"
+                           },
+                           "name": "Bookmark",
+                           "type": "url",
+                           "url": "https://site.invalid/"
+                        }
+                     ],
+                     "date_added": "13435307403753146",
+                     "date_last_used": "0",
+                     "date_modified": "13435307403753190",
+                     "guid": "04f107b7-203e-49e6-ab97-d6b9e613cc4a",
+                     "id": "24",
+                     "meta_info": {
+                        "Partner": "04f107b7-203e-49e6-ab97-d6b9e613cc4a"
+                     },
+                     "name": "Vivaldi",
+                     "type": "folder"
+                  },
+                  {
+                     "date_added": "13435307403753217",
+                     "date_last_used": "0",
+                     "guid": "9aa817db-5072-440c-b262-c49a601bc499",
+                     "id": "27",
+                     "meta_info": {
+                        "DisplayURL": "https://ostrovok.ru/",
+                        "Partner": "9aa817db-5072-440c-b262-c49a601bc499",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_ru_ostrovok.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403753246",
+                     "date_last_used": "0",
+                     "guid": "c5ceea21-8d73-4eec-89d1-be72552cf9c8",
+                     "id": "28",
+                     "meta_info": {
+                        "DisplayURL": "https://www.expedia.com/eu",
+                        "Partner": "c5ceea21-8d73-4eec-89d1-be72552cf9c8",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_expedia.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403753274",
+                     "date_last_used": "0",
+                     "guid": "d5158dd0-fb6a-49e4-922a-75266cde3f84",
+                     "id": "29",
+                     "meta_info": {
+                        "DisplayURL": "https://www.tripadvisor.com/",
+                        "Partner": "d5158dd0-fb6a-49e4-922a-75266cde3f84",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_tripadvisor.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403753299",
+                     "date_last_used": "0",
+                     "guid": "8f22028b-fe14-43f3-bbfe-6e7112da79a5",
+                     "id": "30",
+                     "meta_info": {
+                        "DisplayURL": "https://www.aviasales.ru/",
+                        "Partner": "8f22028b-fe14-43f3-bbfe-6e7112da79a5",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_aviasales.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403753324",
+                     "date_last_used": "0",
+                     "guid": "09c48cbf-f0fe-4763-a4b2-b7c5c4f57833",
+                     "id": "31",
+                     "meta_info": {
+                        "DisplayURL": "https://www.kayak.ru/",
+                        "Partner": "09c48cbf-f0fe-4763-a4b2-b7c5c4f57833"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403753350",
+                     "date_last_used": "0",
+                     "guid": "e0307500-2b4f-4e2b-b67d-c9d30aa4582b",
+                     "id": "32",
+                     "meta_info": {
+                        "DisplayURL": "https://beru.ru/",
+                        "Partner": "e0307500-2b4f-4e2b-b67d-c9d30aa4582b"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  },
+                  {
+                     "date_added": "13435307403753375",
+                     "date_last_used": "0",
+                     "guid": "930d9804-4a0f-45ee-9317-b78ed2b548fd",
+                     "id": "33",
+                     "meta_info": {
+                        "DisplayURL": "https://www.ebay.com/",
+                        "Partner": "930d9804-4a0f-45ee-9317-b78ed2b548fd",
+                        "Thumbnail": "/resources/sd_thumbnails/sd_ebay.png"
+                     },
+                     "name": "Bookmark",
+                     "type": "url",
+                     "url": "https://site.invalid/"
+                  }
+               ],
+               "date_added": "13435307403753132",
+               "date_last_used": "0",
+               "date_modified": "13435307403753375",
+               "guid": "12c04539-d01e-4fd3-9fbf-aa09a91e91ba",
+               "id": "23",
+               "meta_info": {
+                  "Partner": "12c04539-d01e-4fd3-9fbf-aa09a91e91ba"
+               },
+               "name": "Закладки",
+               "type": "folder"
+            }
+         ],
+         "date_added": "13435307402585599",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Закладки",
+         "type": "folder"
+      },
+      "other": {
+         "children": [],
+         "date_added": "13435307402585599",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Другие закладки",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [],
+         "date_added": "13435307402585599",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Мобильные закладки",
+         "type": "folder"
+      },
+      "trash": {
+         "children": [],
+         "date_added": "13435307402585599",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "9f32a0fb-bfd9-5032-be46-07afe4a25400",
+         "id": "4",
+         "name": "Корзина",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}

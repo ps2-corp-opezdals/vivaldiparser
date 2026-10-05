@@ -9,3 +9,22 @@ doc/html/
 .DS_Store
 Cases/
 .Cases/
+
+# Обезличенная выгрузка профиля Vivaldi для модулей парсера (ПВ-2 … ПВ-6).
+# Профиль лежит в Source-vivaldi/, но Vivaldi кладёт внутрь свой .gitignore
+# с паттерном `*` (чтобы профиль случайно не уехал в репозиторий), поэтому
+# файлы добавляются принудительно через `git add -f`.
+# Исключения ниже — чтобы случайный `git add .` их не потерял из-под контроля.
+!/Source-vivaldi/
+!/Source-vivaldi/README.md
+!/Source-vivaldi/vivaldi_dump/
+!/Source-vivaldi/vivaldi_dump/vivaldi/
+!/Source-vivaldi/vivaldi_dump/vivaldi/Default/
+!/Source-vivaldi/vivaldi_dump/vivaldi/Default/Cache/
+!/Source-vivaldi/vivaldi_dump/vivaldi/Default/Cache/Cache_Data/
+
+# Блокировки и временные файлы SQLite/leveldb из выгрузки
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+*-journal
