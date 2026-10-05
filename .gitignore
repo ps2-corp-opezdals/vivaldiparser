@@ -7,3 +7,5 @@ venv/
 /Cases/*
 doc/html/
 .DS_Store
+Cases/
+.Cases/
