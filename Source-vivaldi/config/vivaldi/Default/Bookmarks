@@ -1,0 +1,606 @@
+{
+   "checksum": "eac48a558c534abd6efb0cf7785de1a4",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "children": [ {
+               "date_added": "13438450045387078",
+               "date_last_used": "0",
+               "guid": "b095403c-0348-4d47-b03e-c9b408bfc92b",
+               "id": "7",
+               "meta_info": {
+                  "DisplayURL": "https://vivaldi.com/",
+                  "Partner": "b095403c-0348-4d47-b03e-c9b408bfc92b",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_vivaldi.png"
+               },
+               "name": "Vivaldi Browser",
+               "type": "url",
+               "url": "https://vivaldi.com/"
+            }, {
+               "date_added": "13438450045387110",
+               "date_last_used": "0",
+               "guid": "848a4ba4-5f69-4a38-8ccc-d0cea9fe0709",
+               "id": "8",
+               "meta_info": {
+                  "DisplayURL": "https://social.vivaldi.net/",
+                  "Partner": "848a4ba4-5f69-4a38-8ccc-d0cea9fe0709",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_vivaldi_social.png"
+               },
+               "name": "Vivaldi Social",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/sd-social"
+            }, {
+               "date_added": "13438450045387132",
+               "date_last_used": "0",
+               "guid": "cbe202d3-71df-4491-a825-448e4d745e43",
+               "id": "9",
+               "meta_info": {
+                  "Description": "vivaldi",
+                  "DisplayURL": "https://vivaldi.net/",
+                  "Partner": "cbe202d3-71df-4491-a825-448e4d745e43",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_vivaldi_community.png"
+               },
+               "name": "Vivaldi Community",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/sd-community"
+            }, {
+               "date_added": "13438450045387152",
+               "date_last_used": "0",
+               "guid": "d680347f-1073-46b9-a546-ae0238e7b9d9",
+               "id": "10",
+               "meta_info": {
+                  "DisplayURL": "https://www.yelp.com/",
+                  "Partner": "d680347f-1073-46b9-a546-ae0238e7b9d9",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_en_us_yelp.png"
+               },
+               "name": "Yelp",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/sd-yelp-en-us"
+            }, {
+               "date_added": "13438450045387170",
+               "date_last_used": "0",
+               "guid": "68fc9516-59ac-447e-a8a6-ff27d558da91",
+               "id": "11",
+               "meta_info": {
+                  "Description": "travel, airfare, hotels",
+                  "DisplayURL": "https://www.booking.com/",
+                  "Partner": "68fc9516-59ac-447e-a8a6-ff27d558da91",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_booking.com.png"
+               },
+               "name": "Booking.com",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/bookingcom-en-us"
+            } ],
+            "date_added": "13438450045387027",
+            "date_last_used": "0",
+            "date_modified": "13438450045387170",
+            "guid": "e5c019f8-c8a4-403c-99c8-d3502d7d09b3",
+            "id": "6",
+            "meta_info": {
+               "Partner": "e5c019f8-c8a4-403c-99c8-d3502d7d09b3",
+               "Speeddial": "true"
+            },
+            "name": "Home",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13438450045387203",
+               "date_last_used": "0",
+               "guid": "44d32981-5dcf-4a1f-be5b-3c0d03c7a0a1",
+               "id": "13",
+               "meta_info": {
+                  "Description": "shopping",
+                  "DisplayURL": "https://www.ebay.com/",
+                  "Partner": "44d32981-5dcf-4a1f-be5b-3c0d03c7a0a1",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_ebay.png"
+               },
+               "name": "eBay",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/ebay-en-us"
+            }, {
+               "date_added": "13438450045387223",
+               "date_last_used": "0",
+               "guid": "6f7e802b-87ed-454d-ae23-95407a64de52",
+               "id": "14",
+               "meta_info": {
+                  "Description": "shopping",
+                  "DisplayURL": "https://www.walmart.com/",
+                  "Partner": "6f7e802b-87ed-454d-ae23-95407a64de52",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_walmart.png"
+               },
+               "name": "Walmart",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/walmart-pc"
+            }, {
+               "date_added": "13438450045387240",
+               "date_last_used": "0",
+               "guid": "0efbb5fb-d366-4a91-95b1-b5690a0cf0ef",
+               "id": "15",
+               "meta_info": {
+                  "Description": "shopping",
+                  "DisplayURL": "https://www.aliexpress.com/",
+                  "Partner": "0efbb5fb-d366-4a91-95b1-b5690a0cf0ef",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_aliexpress.png"
+               },
+               "name": "AliExpress",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/aliexpresscom-us"
+            }, {
+               "date_added": "13438450045387259",
+               "date_last_used": "0",
+               "guid": "8cb7c7d5-7ddb-43ab-a46c-9c08a0f783e8",
+               "id": "16",
+               "meta_info": {
+                  "Description": "shopping",
+                  "DisplayURL": "https://www.eneba.com/us",
+                  "Partner": "8cb7c7d5-7ddb-43ab-a46c-9c08a0f783e8",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_eneba.png"
+               },
+               "name": "Eneba",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/eneba-en-us"
+            } ],
+            "date_added": "13438450045387196",
+            "date_last_used": "0",
+            "date_modified": "13438450045387259",
+            "guid": "7dc00b6d-b26b-4371-83cb-2cd63274b9b8",
+            "id": "12",
+            "meta_info": {
+               "Partner": "7dc00b6d-b26b-4371-83cb-2cd63274b9b8",
+               "Speeddial": "true"
+            },
+            "name": "Shopping",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "date_added": "13438450045387288",
+               "date_last_used": "0",
+               "guid": "ba6d8580-e93e-4f5a-b0c6-c23e24a34183",
+               "id": "18",
+               "meta_info": {
+                  "Description": "travel, airfare, hotels",
+                  "DisplayURL": "https://www.hotels.com/",
+                  "Partner": "ba6d8580-e93e-4f5a-b0c6-c23e24a34183",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_hotelscom.png"
+               },
+               "name": "Hotels.com",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/hotelscom-en-us"
+            }, {
+               "date_added": "13438450045387309",
+               "date_last_used": "0",
+               "guid": "53e74366-122a-4ec9-a75c-c6d395dc1284",
+               "id": "19",
+               "meta_info": {
+                  "Description": "travel, airfare, hotels",
+                  "DisplayURL": "https://www.expedia.com/",
+                  "Partner": "53e74366-122a-4ec9-a75c-c6d395dc1284",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_expedia.png"
+               },
+               "name": "Expedia",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/expedia"
+            }, {
+               "date_added": "13438450045387328",
+               "date_last_used": "0",
+               "guid": "f16ffed1-6c76-411c-a1e2-a251211e56ac",
+               "id": "20",
+               "meta_info": {
+                  "Description": "travel, airfare, hotels",
+                  "DisplayURL": "https://www.kayak.com/",
+                  "Partner": "f16ffed1-6c76-411c-a1e2-a251211e56ac",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_kayak.png"
+               },
+               "name": "Kayak",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/kayak-en-us"
+            }, {
+               "date_added": "13438450045387362",
+               "date_last_used": "0",
+               "guid": "576c0090-2626-4554-bb9a-6f9c0bacaf47",
+               "id": "21",
+               "meta_info": {
+                  "Description": "travel, airfare",
+                  "DisplayURL": "https://skyscanner.com/",
+                  "Partner": "576c0090-2626-4554-bb9a-6f9c0bacaf47",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_skyscanner.png"
+               },
+               "name": "Skyscanner",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/skyscanner"
+            }, {
+               "date_added": "13438450045387390",
+               "date_last_used": "0",
+               "guid": "37ca0399-d4b3-44f8-9fa8-5e678c59aed5",
+               "id": "22",
+               "meta_info": {
+                  "Description": "travel, airfare, hotels",
+                  "DisplayURL": "https://www.trip.com/",
+                  "Partner": "37ca0399-d4b3-44f8-9fa8-5e678c59aed5",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_trip.png"
+               },
+               "name": "Trip.com",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/sd-trip"
+            }, {
+               "date_added": "13438450045387419",
+               "date_last_used": "0",
+               "guid": "25672435-2187-4c7b-aacc-8ca9c75e69b5",
+               "id": "23",
+               "meta_info": {
+                  "Description": "travel, airfare, hotels",
+                  "DisplayURL": "https://www.tripadvisor.com/",
+                  "Partner": "25672435-2187-4c7b-aacc-8ca9c75e69b5",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_tripadvisor.png"
+               },
+               "name": "Tripadvisor",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/tripadvisor-world"
+            }, {
+               "date_added": "13438450045387453",
+               "date_last_used": "0",
+               "guid": "6dafc780-86dc-40e6-ac81-92b033fd8083",
+               "id": "24",
+               "meta_info": {
+                  "Description": "travel, airfare, hotels",
+                  "DisplayURL": "https://www.getyourguide.com/",
+                  "Partner": "6dafc780-86dc-40e6-ac81-92b033fd8083",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_getyourguide.png"
+               },
+               "name": "GetYourGuide",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/sd-getyourguide"
+            } ],
+            "date_added": "13438450045387280",
+            "date_last_used": "0",
+            "date_modified": "13438450045387453",
+            "guid": "0f0a0d3a-bf40-4367-a65c-ed43f85888ed",
+            "id": "17",
+            "meta_info": {
+               "Partner": "0f0a0d3a-bf40-4367-a65c-ed43f85888ed",
+               "Speeddial": "true"
+            },
+            "name": "Travel",
+            "type": "folder"
+         }, {
+            "children": [ {
+               "children": [ {
+                  "date_added": "13438450045387510",
+                  "date_last_used": "0",
+                  "guid": "a91e4453-0a84-4a58-be63-eb3d7c257c35",
+                  "id": "27",
+                  "meta_info": {
+                     "Description": "vivaldi",
+                     "DisplayURL": "https://vivaldi.com/features",
+                     "Partner": "a91e4453-0a84-4a58-be63-eb3d7c257c35",
+                     "Thumbnail": "/resources/sd_thumbnails/sd_vivaldi.png"
+                  },
+                  "name": "Vivaldi Features",
+                  "type": "url",
+                  "url": "https://vivaldi.com/bk/sd-browser-features"
+               }, {
+                  "date_added": "13438450045387543",
+                  "date_last_used": "0",
+                  "guid": "eb5c2f32-c648-4f69-a875-472da896d50b",
+                  "id": "28",
+                  "meta_info": {
+                     "DisplayURL": "https://webmail.vivaldi.net/",
+                     "Partner": "eb5c2f32-c648-4f69-a875-472da896d50b",
+                     "Thumbnail": "/resources/sd_thumbnails/sd_webmail.png"
+                  },
+                  "name": "Vivaldi Webmail",
+                  "type": "url",
+                  "url": "https://vivaldi.com/bk/sd-webmail"
+               }, {
+                  "date_added": "13438450045387569",
+                  "date_last_used": "0",
+                  "guid": "37166148-e194-4693-98ca-590c102ab5a5",
+                  "id": "29",
+                  "meta_info": {
+                     "DisplayURL": "https://help.vivaldi.com/",
+                     "Partner": "37166148-e194-4693-98ca-590c102ab5a5",
+                     "Thumbnail": "/resources/sd_thumbnails/sd_help.png"
+                  },
+                  "name": "Vivaldi Help",
+                  "type": "url",
+                  "url": "https://vivaldi.com/bk/sd-vivaldi-help-en"
+               }, {
+                  "date_added": "13438450045387598",
+                  "date_last_used": "0",
+                  "guid": "01d6f4e4-a695-4450-a65d-f69366027dae",
+                  "id": "30",
+                  "meta_info": {
+                     "DisplayURL": "https://vivaldi.com/game",
+                     "Partner": "01d6f4e4-a695-4450-a65d-f69366027dae",
+                     "Thumbnail": "/resources/sd_thumbnails/sd_vivaldia_games.png"
+                  },
+                  "name": "Vivaldia Games",
+                  "type": "url",
+                  "url": "https://vivaldi.com/bk/vivaldia-game"
+               } ],
+               "date_added": "13438450045387499",
+               "date_last_used": "0",
+               "date_modified": "13438450045387598",
+               "guid": "04f107b7-203e-49e6-ab97-d6b9e613cc4a",
+               "id": "26",
+               "meta_info": {
+                  "Partner": "04f107b7-203e-49e6-ab97-d6b9e613cc4a"
+               },
+               "name": "Vivaldi",
+               "type": "folder"
+            }, {
+               "date_added": "13438450045387621",
+               "date_last_used": "0",
+               "guid": "844923d5-bae9-400f-b260-3e72c919b4c0",
+               "id": "31",
+               "meta_info": {
+                  "Description": "shopping",
+                  "DisplayURL": "https://www.macys.com/",
+                  "Partner": "844923d5-bae9-400f-b260-3e72c919b4c0"
+               },
+               "name": "Macy's",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/macys-en-us-bk"
+            }, {
+               "date_added": "13438450045387645",
+               "date_last_used": "0",
+               "guid": "f56c1a38-3e9e-48fc-8d6c-b800f226dbfb",
+               "id": "32",
+               "meta_info": {
+                  "DisplayURL": "https://www.booking.com/",
+                  "Partner": "f56c1a38-3e9e-48fc-8d6c-b800f226dbfb",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_booking.com.png"
+               },
+               "name": "Booking.com",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/booking-us-bk"
+            }, {
+               "date_added": "13438450045387667",
+               "date_last_used": "0",
+               "guid": "d5158dd0-fb6a-49e4-922a-75266cde3f84",
+               "id": "33",
+               "meta_info": {
+                  "DisplayURL": "https://www.tripadvisor.com/",
+                  "Partner": "d5158dd0-fb6a-49e4-922a-75266cde3f84",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_tripadvisor.png"
+               },
+               "name": "Tripadvisor",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/tripadvisor-bk"
+            }, {
+               "date_added": "13438450045387686",
+               "date_last_used": "0",
+               "guid": "f79cd6e8-ebc0-444d-ac96-00da456dcb59",
+               "id": "34",
+               "meta_info": {
+                  "DisplayURL": "https://www.aliexpress.com/",
+                  "Partner": "f79cd6e8-ebc0-444d-ac96-00da456dcb59",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_aliexpress.png"
+               },
+               "name": "AliExpress",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/ali-us-bk"
+            }, {
+               "date_added": "13438450045387707",
+               "date_last_used": "0",
+               "guid": "930d9804-4a0f-45ee-9317-b78ed2b548fd",
+               "id": "35",
+               "meta_info": {
+                  "DisplayURL": "https://www.ebay.com/",
+                  "Partner": "930d9804-4a0f-45ee-9317-b78ed2b548fd",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_ebay.png"
+               },
+               "name": "eBay",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/ebay-us-bk"
+            }, {
+               "date_added": "13438450045387728",
+               "date_last_used": "0",
+               "guid": "775f68b2-b81f-464a-bdf7-d5f62a2484f7",
+               "id": "36",
+               "meta_info": {
+                  "DisplayURL": "https://www.yelp.com/bk",
+                  "Partner": "775f68b2-b81f-464a-bdf7-d5f62a2484f7"
+               },
+               "name": "Yelp",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/yelp-en-us"
+            }, {
+               "date_added": "13438450045387746",
+               "date_last_used": "0",
+               "guid": "8fe00cea-a6cd-4581-b01c-265281a681c1",
+               "id": "37",
+               "meta_info": {
+                  "DisplayURL": "https://www.overstock.com/",
+                  "Partner": "8fe00cea-a6cd-4581-b01c-265281a681c1",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_overstock.png"
+               },
+               "name": "Overstock",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/overstock-us-bk"
+            }, {
+               "date_added": "13438450045387767",
+               "date_last_used": "0",
+               "guid": "292cbc31-d911-4f3b-b631-e3c3c8755666",
+               "id": "38",
+               "meta_info": {
+                  "Description": "shopping",
+                  "DisplayURL": "https://www.target.com/",
+                  "Partner": "292cbc31-d911-4f3b-b631-e3c3c8755666",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_target.png"
+               },
+               "name": "Target",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/target-us"
+            }, {
+               "date_added": "13438450045387789",
+               "date_last_used": "0",
+               "guid": "82853ad9-4212-452c-bb3b-541d154b2f73",
+               "id": "39",
+               "meta_info": {
+                  "DisplayURL": "https://www.instacart.com/",
+                  "Partner": "82853ad9-4212-452c-bb3b-541d154b2f73",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_instacart.png"
+               },
+               "name": "Instacart",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/sd-instacart-en-us"
+            }, {
+               "date_added": "13438450045387812",
+               "date_last_used": "0",
+               "guid": "2a44b514-79a6-43aa-a493-a19dcbef49ea",
+               "id": "40",
+               "meta_info": {
+                  "DisplayURL": "https://www.rakuten.com/",
+                  "Partner": "2a44b514-79a6-43aa-a493-a19dcbef49ea",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_ja_rakuten.png"
+               },
+               "name": "Rakuten",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/rakuten-us-bk"
+            }, {
+               "date_added": "13438450045387831",
+               "date_last_used": "0",
+               "guid": "9bed7c4c-c99e-4843-9da4-5a40dc567c82",
+               "id": "41",
+               "meta_info": {
+                  "DisplayURL": "https://www.hulu.com/",
+                  "Partner": "9bed7c4c-c99e-4843-9da4-5a40dc567c82",
+                  "Thumbnail": "/resources/sd_thumbnails/sd_hulu.png"
+               },
+               "name": "Hulu",
+               "type": "url",
+               "url": "https://vivaldi.com/bk/hulu"
+            } ],
+            "date_added": "13438450045387483",
+            "date_last_used": "0",
+            "date_modified": "13438450045387831",
+            "guid": "12c04539-d01e-4fd3-9fbf-aa09a91e91ba",
+            "id": "25",
+            "meta_info": {
+               "Bookmarkbar": "true",
+               "Partner": "12c04539-d01e-4fd3-9fbf-aa09a91e91ba"
+            },
+            "name": "Bookmarks bar",
+            "type": "folder"
+         } ],
+         "date_added": "13438450044633847",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Bookmarks",
+         "type": "folder"
+      },
+      "other": {
+         "children": [ {
+            "date_added": "13438450905133857",
+            "date_last_used": "0",
+            "guid": "5f2ad6a0-b047-4b5a-9a27-d96e293dcc12",
+            "id": "42",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "ЕГЭ−2027, Математика профильного уровня: задания, ответы, решения",
+            "type": "url",
+            "url": "https://math-ege.sdamgia.ru/"
+         }, {
+            "date_added": "13438450914488597",
+            "date_last_used": "0",
+            "guid": "26e5b0f2-572c-45ab-8d0c-cd334fc744ce",
+            "id": "43",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Ural Federal University",
+            "type": "url",
+            "url": "https://urfu.ru/en/"
+         }, {
+            "date_added": "13438450938334941",
+            "date_last_used": "0",
+            "guid": "4e949d8c-0fba-4c7b-aa2a-51a777ae7d0e",
+            "id": "44",
+            "meta_info": {
+               "Description": "Download Visual Studio Code for free on Linux, macOS, and Windows. The open source AI code editor for agent-first development, with built-in multi-agent workflows and AI-powered coding.",
+               "Thumbnail": "chrome://vivaldi-data/thumbnail/TNCNIZFNPZZVRHCCRN65QF3YTMDJNRE6.png",
+               "power_bookmark_meta": ""
+            },
+            "name": "Download Visual Studio Code - Free AI Code Editor for Mac, Linux, Windows",
+            "type": "url",
+            "url": "https://code.visualstudio.com/download"
+         }, {
+            "date_added": "13438450947224978",
+            "date_last_used": "0",
+            "guid": "3c4aed80-9a5e-478c-87bb-721185699691",
+            "id": "45",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "Arch Linux - Downloads",
+            "type": "url",
+            "url": "https://archlinux.org/download/"
+         }, {
+            "date_added": "13438452661974403",
+            "date_last_used": "0",
+            "guid": "0ad698a0-7b92-4df5-9f7f-6243b85212cc",
+            "id": "46",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "github.com",
+            "type": "url",
+            "url": "https://github.com/signup?ref_cta=Sign+up&ref_loc=header+logged+out&ref_page=%2F&source=header-home"
+         }, {
+            "date_added": "13438452678227575",
+            "date_last_used": "0",
+            "guid": "450e0204-b6ac-4102-82ef-942732de318b",
+            "id": "47",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "The Internet",
+            "type": "url",
+            "url": "https://the-internet.herokuapp.com/two_factor"
+         }, {
+            "date_added": "13438452735030222",
+            "date_last_used": "0",
+            "guid": "35e60234-8472-4eab-8454-531f757be255",
+            "id": "48",
+            "meta_info": {
+               "power_bookmark_meta": ""
+            },
+            "name": "пишу парсер для вивальди, хочу парсить историю, загрузки, закладки, куки и кэш, сейчас сижу в вивальди чтобы создать более менее дамп, что нужно сделать чтобы появились кэш и куки - Google Search",
+            "type": "url",
+            "url": "https://www.google.com/search?aep=11&sei=MuztapziHtKqkdUP_KOHiAc&q=%D0%BF%D0%B8%D1%88%D1%83+%D0%BF%D0%B0%D1%80%D1%81%D0%B5%D1%80+%D0%B4%D0%BB%D1%8F+%D0%B2%D0%B8%D0%B2%D0%B0%D0%BB%D1%8C%D0%B4%D0%B8%2C+%D1%85%D0%BE%D1%87%D1%83+%D0%BF%D0%B0%D1%80%D1%81%D0%B8%D1%82%D1%8C+%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D1%8E%2C+%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8%2C+%D0%B7%D0%B0%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B8%2C+%D0%BA%D1%83%D0%BA%D0%B8+%D0%B8+%D0%BA%D1%8D%D1%88%2C+%D1%81%D0%B5%D0%B9%D1%87%D0%B0%D1%81+%D1%81%D0%B8%D0%B6%D1%83+%D0%B2+%D0%B2%D0%B8%D0%B2%D0%B0%D0%BB%D1%8C%D0%B4%D0%B8+%D1%87%D1%82%D0%BE%D0%B1%D1%8B+%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D1%82%D1%8C+%D0%B1%D0%BE%D0%BB%D0%B5%D0%B5+%D0%BC%D0%B5%D0%BD%D0%B5%D0%B5+%D0%B4%D0%B0%D0%BC%D0%BF%2C+%D1%87%D1%82%D0%BE+%D0%BD%D1%83%D0%B6%D0%BD%D0%BE+%D1%81%D0%B4%D0%B5%D0%BB%D0%B0%D1%82%D1%8C+%D1%87%D1%82%D0%BE%D0%B1%D1%8B+%D0%BF%D0%BE%D1%8F%D0%B2%D0%B8%D0%BB%D0%B8%D1%81%D1%8C+%D0%BA%D1%8D%D1%88+%D0%B8+%D0%BA%D1%83%D0%BA%D0%B8&mstk=AUtExfDiMucapr9P7TG_FMGU2PiSeke2n99_inAFI1dvVXSrAU1LllFAYoxdz_4__M7KQ_RnKBdLjNrPUYMGxQ02w8MwlnqR1YFyKin5Nc2vLNO5jVLawNMBfTMoiDSQ1swKIZQbX56kdxbowtHsqCudh2hyrLEbaDOKFuE&csuir=1&mtid=fOztapuFBP36wd0Pst2RgAs&udm=50"
+         } ],
+         "date_added": "13438450044633847",
+         "date_last_used": "0",
+         "date_modified": "13438452735030222",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other bookmarks",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13438450044633847",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile bookmarks",
+         "type": "folder"
+      },
+      "trash": {
+         "children": [  ],
+         "date_added": "13438450044633847",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "9f32a0fb-bfd9-5032-be46-07afe4a25400",
+         "id": "4",
+         "name": "Trash",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
