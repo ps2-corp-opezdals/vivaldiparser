@@ -116,6 +116,10 @@ class Solver:
         print(modules)
         for item in modules:
             moduleFullPath = os.path.join(self._cwd,self._modelFolder,item)
+            
+            # Пропустить элементы, которые не являются модулями (нет Parser.py)
+            if not os.path.isfile(os.path.join(moduleFullPath,'Parser.py')):
+                continue
         
             # Параметры модуля   
             self._moduleParameters.update({'MODULENAME':item})
@@ -128,7 +132,7 @@ class Solver:
                 dbPath=os.path.join(self._caseFolder,self._caseName,self._moduleParameters['OUTPUTFILENAME']),
                 log=self._log,
                 moduleName=item,
-                ramProcessing=self._moduleParameters['RAMPROCESSING']
+                moduleRAMProcessing=self._moduleParameters['RAMPROCESSING']
                 )
             
             outputWriter = SQLiteDBOutputWriter(
@@ -145,7 +149,7 @@ class Solver:
             self._moduleParameters.update({'DBCONNECTION':dbConnection})
             self._moduleParameters.update({'OUTPUTWRITER':outputWriter})
             
-            moduleResult = await self._ProcessTask(modulePath=moduleFullPath, fileName='Parser.py')
+            moduleResult = await self._ProcessTask(modulePath=moduleFullPath, moduleName='Parser.py')
             
             await self._redrawUIMethod(f'Завершена работа модуля: {moduleResult}',100)
         
