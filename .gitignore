@@ -9,3 +9,6 @@ doc/html/
 .DS_Store
 Cases/
 .Cases/
+
+# Cache
+Source-vivaldi/cache/
