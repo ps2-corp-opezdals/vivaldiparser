@@ -21,7 +21,7 @@ if __name__ == '__main__':
     start = time.time()
     try:
         asyncio.run(main())
-    except asyncio.exceptions.CancelledError, Exception:
+    except (asyncio.exceptions.CancelledError, Exception):
         sys.exit(-1)
     print('Время выполнения: ', time.time() - start)
     sys.exit(0)
