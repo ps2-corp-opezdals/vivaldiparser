@@ -16,7 +16,7 @@ URL_PATTERN = re.compile(rb'https?://[A-Za-z0-9\-._~:/?#\[\]@!$&\'()*+,;=%]+')
 
 class _VivaldiCacheParser:
     """
-    Базовый класс, иницилизирующий параметры для извлечения и обработки данных кэша браузера Vivaldi.
+    Базовый класс
     """
     def __init__(self, parserParameters: dict, recordFields: dict):
         self._storage: str = parserParameters.get('STORAGE')
@@ -36,7 +36,7 @@ class _VivaldiCacheParser:
 
     def _CachePath(self) -> Optional[str]:
         """
-        Метод поиска каталога Cache_Data в дампе Vivaldi.
+        Метод поиска каталога Cache_Data в дампе Vivaldi
 
         Returns:
             Optional[str]: полный путь к каталогу Cache_Data
@@ -87,7 +87,7 @@ class _VivaldiCacheParser:
 
     async def _ProcessEntry(self, entryPath: str, fileName: str) -> None:
         """
-        Метод обработки одной записи кэша.
+        Метод обработки одной записи кэша
 
         Args:
             entryPath (str): полный путь до файла записи кэша
@@ -126,7 +126,7 @@ class _VivaldiCacheParser:
 
 class Parser:
     """
-    Интерфейс модуля: готовит поля БД, вызывает парсер и финализирует запись.
+    Интерфейс модуля
     """
     def __init__(self, parameters: dict):
         self.__parameters: dict = parameters
