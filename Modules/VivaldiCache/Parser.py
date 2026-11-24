@@ -37,13 +37,11 @@ class _VivaldiCacheParser:
     def _CachePath(self) -> Optional[str]:
         """
         Метод поиска каталога Cache_Data в дампе Vivaldi
-
-        Returns:
-            Optional[str]: полный путь к каталогу Cache_Data
         """
         if not self._storage:
             return None
         candidates = [
+            os.path.join(self._storage, 'config', 'vivaldi', 'Default', 'Cache', 'Cache_Data'),
             os.path.join(self._storage, 'cache', 'vivaldi', 'Default', 'Cache', 'Cache_Data'),
             os.path.join(self._storage, 'cache', 'Default', 'Cache', 'Cache_Data'),
             os.path.join(self._storage, 'cache', 'vivaldi', 'Cache_Data'),
@@ -54,16 +52,12 @@ class _VivaldiCacheParser:
                 return path
         return None
 
-    async def Start(self) -> None:
-        """
-        Метод-обертка для вызова логики обработки данных
-        """
+    async def Start(self) -> bool:
         cacheDir: Optional[str] = self._CachePath()
         if cacheDir is None:
-            message = 'Каталог Cache_Data не найден в дампе Vivaldi — модуль пропущен'
             if self._log is not None:
-                self._log.Info('VivaldiCache', message)
-            return
+                self._log.Info('VivaldiCache', 'Каталог Cache_Data не найден — модуль пропущен')
+            return False
 
         if self._log is not None:
             self._log.Info('VivaldiCache', f'Читаю {cacheDir}')
@@ -73,7 +67,7 @@ class _VivaldiCacheParser:
         except OSError as e:
             if self._log is not None:
                 self._log.Error('VivaldiCache', f'Не удалось получить список файлов кэша: {e}')
-            return
+            return False
 
         for entryName in entryNames:
             entryPath: str = os.path.join(cacheDir, entryName)
@@ -84,6 +78,7 @@ class _VivaldiCacheParser:
             except Exception as e:
                 if self._log is not None:
                     self._log.Warn('VivaldiCache', f'Пропуск записи кэша {entryName}: {e}')
+        return True
 
     async def _ProcessEntry(self, entryPath: str, fileName: str) -> None:
         """
@@ -181,7 +176,9 @@ class Parser:
         outputWriter.SetFields(fields, self.__recordFields)
         outputWriter.CreateDatabaseTables()
 
-        await self.__cacheParser.Start()
+        hasData = await self.__cacheParser.Start()
+        if not hasData:
+            return {}
 
         outputWriter.RemoveTempTables()
         await outputWriter.CreateDatabaseIndexes(self.__parameters.get('MODULENAME'))
