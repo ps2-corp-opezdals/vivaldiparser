@@ -12,3 +12,7 @@ Cases/
 
 # Cache
 Source-vivaldi/cache/
+/cache/
+
+# Тесты
+.pytest_cache/
