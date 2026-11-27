@@ -16,7 +16,7 @@ import os
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 
-from Common.Chrom import chromium_to_datetime, format_datetime
+from Common.Chrom import chromium_to_datetime, chromium_to_filetime, format_datetime
 from Common.Routines import FixedOffset as tzInfo
 
 
@@ -154,7 +154,7 @@ class _VivaldiBookmarksParser:
         except (OSError, OverflowError, ValueError):
             return '', None, ''
 
-        return format_datetime(dtUtc), value * 10, format_datetime(dtLocal)
+        return format_datetime(dtUtc), chromium_to_filetime(value), format_datetime(dtLocal)
 
     async def _WriteNode(self, node: dict, pathParts: List[str], dataSource: str) -> None:
         """
