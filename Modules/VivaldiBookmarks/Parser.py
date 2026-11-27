@@ -10,29 +10,37 @@ name, url (только у ссылок), date_added и date_modified (Chromium-
 
 В БД попадают и закладки, и папки: тип узла хранится в поле Type,
 полный путь от корня — в PathInTree.
+
+Соглашения едины с остальными модулями Vivaldi*:
+- TimestampAdded_UTC / TimestampModified_UTC — Chromium-микросекунды (не FILETIME);
+- отсутствующее или нулевое время даётся через SAFE_EPOCH (Common/Chrom.py),
+  в БД это 1970-01-01 и метка 0;
+- локальное время и TimeZoneOffset считаются с машины (как в VivaldiHistory);
+- если записей нет (файл отсутствует, битый JSON, пустое дерево) — Start()
+  возвращает {}, согласно п. 5 контракта.
 """
 import json
 import os
 from datetime import datetime
 from typing import Any, Dict, List, Optional, Tuple
 
-from Common.Chrom import chromium_to_datetime, chromium_to_filetime, format_datetime
+from Common.Chrom import chromium_to_datetime, format_datetime
 from Common.Routines import FixedOffset as tzInfo
 
 
-
+# Корневые ветви дерева, которые попадают в результат (раздел ПВ-4 ТЗ).
 ROOT_BRANCHES: Dict[str, str] = {
     'bookmark_bar': 'Bookmarks bar',
     'other': 'Other bookmarks',
     'synced': 'Synced bookmarks',
 }
 
-
+# Включать ли ветвь trash (удалённые закладки). По ТЗ она не требуется.
 INCLUDE_TRASH: bool = False
 TRASH_BRANCH: str = 'trash'
 TRASH_LABEL: str = 'Trash'
 
-
+# Разделитель уровней в поле PathInTree.
 PATH_SEPARATOR: str = ' > '
 
 
@@ -40,12 +48,14 @@ class _VivaldiBookmarksParser:
     """Обходит дерево закладок и записывает узлы в БД каркаса."""
 
     def __init__(self, parserParameters: dict, recordFields: dict):
+        """Инициализировать парсер параметрами каркаса и полями записи."""
         self._storage: str = parserParameters.get('STORAGE')
         self._wr: Any = parserParameters.get('OUTPUTWRITER')
         self._db: Any = parserParameters.get('DBCONNECTION')
         self._log: Any = parserParameters.get('LOG')
         self._record: dict = {field: '' for field in recordFields.keys()}
         self._currentTzInfo, self._tzOffsetMinutes = self._LocalTimeZone()
+        self._recordsCount: int = 0
 
     @staticmethod
     def _LocalTimeZone() -> Tuple[Any, int]:
@@ -104,11 +114,11 @@ class _VivaldiBookmarksParser:
             Optional[dict]: корневой объект JSON либо None при ошибке
         """
         try:
-            
+            # utf-8-sig: в начале файла может оказаться BOM
             with open(path, 'r', encoding='utf-8-sig') as bookmarksFile:
                 data = json.load(bookmarksFile)
         except RecursionError:
-            
+            # json.load сам рекурсивен и не осиливает патологически глубокий JSON
             if self._log:
                 self._log.Error('VivaldiBookmarks', f'Слишком глубокая вложенность в {path}')
             return None
@@ -128,7 +138,7 @@ class _VivaldiBookmarksParser:
         """Вернуть имя узла дерева закладок."""
         return str(node.get('name') or '')
 
-    def _ConvertTime(self, chromiumMicroseconds: Any) -> Tuple[str, Optional[int], str]:
+    def _ConvertTime(self, chromiumMicroseconds: Any) -> Tuple[str, int, str]:
         """
         Пересчитать Chromium-время (мкс с 1601-01-01 UTC) в поля записи.
 
@@ -136,25 +146,19 @@ class _VivaldiBookmarksParser:
             chromiumMicroseconds (Any): значение date_added/date_modified из JSON
 
         Returns:
-            Tuple[str, Optional[int], str]: дата UTC, FILETIME (100 нс), дата локальная;
-            для отсутствующего или нулевого времени — '', None, ''
+            Tuple[str, int, str]: дата UTC, Chromium-микросекунды, дата локальная.
+            Для отсутствующего или нулевого значения — SAFE_EPOCH (1970-01-01) и 0,
+            как в VivaldiHistory / VivaldiDownloads / VivaldiCookies.
         """
-        if chromiumMicroseconds in (None, '', 0):
-            return '', None, ''
         try:
-            value = int(chromiumMicroseconds)
-        except (TypeError, ValueError):
-            return '', None, ''
-        if value <= 0:
-            return '', None, ''
+            value = int(chromiumMicroseconds) if chromiumMicroseconds not in (None, '') else 0
+        except (TypeError, ValueError, OverflowError):
+            value = 0
 
-        try:
-            dtUtc = chromium_to_datetime(value)
-            dtLocal = chromium_to_datetime(value, tz=self._currentTzInfo)
-        except (OSError, OverflowError, ValueError):
-            return '', None, ''
+        dtUtc = chromium_to_datetime(value)
+        dtLocal = chromium_to_datetime(value, tz=self._currentTzInfo)
 
-        return format_datetime(dtUtc), chromium_to_filetime(value), format_datetime(dtLocal)
+        return format_datetime(dtUtc), value, format_datetime(dtLocal)
 
     async def _WriteNode(self, node: dict, pathParts: List[str], dataSource: str) -> None:
         """
@@ -185,6 +189,7 @@ class _VivaldiBookmarksParser:
 
         await self._wr.WriteRecord(tuple(self._record.values()))
 
+        self._recordsCount += 1
         self._CleanRecord()
 
     async def _WalkBranch(self, node: dict, parentParts: List[str],
@@ -218,27 +223,35 @@ class _VivaldiBookmarksParser:
             for child in reversed(children):
                 stack.append((child, currentParts, None))
 
-    async def Start(self) -> None:
-        """Точка входа логики: найти Bookmarks, обойти дерево и записать узлы."""
+    async def Start(self) -> int:
+        """
+        Точка входа логики: найти Bookmarks, обойти дерево и записать узлы.
+
+        Returns:
+            int: количество записанных записей (0, если файла нет, он битый
+                 или дерево закладок пустое)
+        """
+        self._recordsCount = 0
+
         bookmarksPath = self.GetBookmarksPath()
         if bookmarksPath is None:
             message = 'Файл Bookmarks не найден в дампе Vivaldi — модуль пропущен'
             if self._log:
                 self._log.Info('VivaldiBookmarks', message)
-            return
+            return 0
 
         if self._log:
             self._log.Info('VivaldiBookmarks', f'Читаю {bookmarksPath}')
 
         data = self._LoadBookmarks(bookmarksPath)
         if data is None:
-            return
+            return 0
 
         roots = data.get('roots')
         if not isinstance(roots, dict):
             if self._log:
                 self._log.Error('VivaldiBookmarks', 'В файле Bookmarks нет объекта roots')
-            return
+            return 0
 
         for branchKey, rootNode in roots.items():
             if not isinstance(rootNode, dict):
@@ -252,6 +265,11 @@ class _VivaldiBookmarksParser:
 
             await self._WalkBranch(rootNode, [], bookmarksPath, label)
 
+        if self._log:
+            self._log.Info('VivaldiBookmarks', f'Записано узлов: {self._recordsCount}')
+
+        return self._recordsCount
+
 
 class Parser:
     """
@@ -259,6 +277,7 @@ class Parser:
     """
 
     def __init__(self, parameters: dict):
+        """Сохранить параметры каркаса и описать поля таблицы Data."""
         self.__parameters: dict = parameters
 
         self.__recordFields: dict = {
@@ -285,40 +304,35 @@ class Parser:
         Запустить обработку Bookmarks и записать результат в БД.
 
         Returns:
-            Dict: {MODULENAME: имя БД} либо {} , если файла Bookmarks нет
+            Dict: {MODULENAME: имя БД} либо {}, если записей нет
         """
         outputWriter: Any = self.__parameters.get('OUTPUTWRITER')
         dbConnection: Any = self.__parameters.get('DBCONNECTION')
         log: Any = self.__parameters.get('LOG')
 
-        if not dbConnection.IsConnected():
-            return {}
-
-        
-        if self.__bookmarksParser.GetBookmarksPath() is None:
-            if log:
-                log.Info('VivaldiBookmarks', 'Файл Bookmarks не найден — модуль пропущен')
+        if outputWriter is None or dbConnection is None or not dbConnection.IsConnected():
             return {}
 
         fields: dict = {
-            'Type':                 ('Тип узла',              50,  'string',   'url — закладка, folder — папка'),
-            'PathInTree':           ('Путь в дереве',         500, 'string',   'Полный путь от корня, включая имя узла'),
-            'Name':                 ('Название',              300, 'string',   'Имя закладки или папки'),
-            'URL':                  ('URL',                   500, 'string',   'Адрес закладки (для папок пусто)'),
-            'DateTimeAdded_UTC':    ('Дата добавления UTC',   50,  'datetime', 'date_added в UTC'),
-            'TimestampAdded_UTC':   ('Timestamp добавления',  50,  'datetime', 'FILETIME (100 нс)'),
-            'DateTimeAdded_Local':  ('Дата добавления',       50,  'datetime', 'date_added в локальном поясе'),
-            'DateTimeModified_UTC': ('Дата изменения UTC',    50,  'datetime', 'date_modified в UTC'),
-            'TimestampModified_UTC':('Timestamp изменения',   50,  'datetime', 'FILETIME (100 нс)'),
-            'DateTimeModified_Local':('Дата изменения',       50,  'datetime', 'date_modified в локальном поясе'),
-            'TimeZoneOffset':       ('Смещение пояса',        50,  'integer',  'Смещение локального пояса в минутах'),
-            'DataSource':           ('Источник данных',       250, 'string',   'Путь к файлу Bookmarks'),
+            'Type':                  ('Тип узла',             50,  'string',   'url — закладка, folder — папка'),
+            'PathInTree':            ('Путь в дереве',        500, 'string',   'Полный путь от корня, включая имя узла'),
+            'Name':                  ('Название',             300, 'string',   'Имя закладки или папки'),
+            'URL':                   ('URL',                  500, 'string',   'Адрес закладки (для папок пусто)'),
+            'DateTimeAdded_UTC':     ('Дата добавления UTC',   50,  'datetime', 'date_added в UTC'),
+            'TimestampAdded_UTC':    ('Timestamp добавления', 100,  'integer',  'Chromium-время (мкс с 1601-01-01 UTC)'),
+            'DateTimeAdded_Local':   ('Дата добавления',       50,  'datetime', 'date_added в локальном поясе'),
+            'DateTimeModified_UTC':  ('Дата изменения UTC',    50,  'datetime', 'date_modified в UTC'),
+            'TimestampModified_UTC': ('Timestamp изменения',  100,  'integer',  'Chromium-время (мкс с 1601-01-01 UTC)'),
+            'DateTimeModified_Local':('Дата изменения',        50,  'datetime', 'date_modified в локальном поясе'),
+            'TimeZoneOffset':        ('Смещение пояса',        50,  'integer',  'Смещение локального пояса в минутах'),
+            'DataSource':            ('Источник данных',      250, 'string',   'Путь к файлу Bookmarks'),
         }
 
         HELP_TEXT: str = self.__parameters.get('MODULENAME') + """:
         Анализ закладок Vivaldi (JSON-файл Bookmarks).
         Извлекаются: тип узла (закладка/папка), полный путь в дереве, имя, URL,
-        время добавления и изменения (UTC и локальное).
+        время добавления и изменения (Chromium-микросекунды, UTC и локальное).
+        Ветка trash (удалённые закладки) по ТЗ не разбирается.
         """
 
         infoTableData: dict = {
@@ -328,15 +342,30 @@ class Parser:
             'Vendor': 'LabFramework',
         }
 
-        outputWriter.SetFields(fields, self.__recordFields)
-        outputWriter.CreateDatabaseTables()
+        recordsCount = 0
 
-        await self.__bookmarksParser.Start()
+        try:
+            outputWriter.SetFields(fields, self.__recordFields)
+            outputWriter.CreateDatabaseTables()
 
-        outputWriter.RemoveTempTables()
-        await outputWriter.CreateDatabaseIndexes(self.__parameters.get('MODULENAME'))
-        outputWriter.SetInfo(infoTableData)
-        outputWriter.WriteMeta()
-        await outputWriter.CloseOutput()
+            recordsCount = await self.__bookmarksParser.Start()
+
+            outputWriter.RemoveTempTables()
+            if recordsCount > 0:
+                await outputWriter.CreateDatabaseIndexes(self.__parameters.get('MODULENAME'))
+                outputWriter.SetInfo(infoTableData)
+                outputWriter.WriteMeta()
+        except Exception as error:
+            if log is not None:
+                log.Error('VivaldiBookmarks', f'Ошибка обработки Bookmarks: {error}')
+
+        try:
+            await outputWriter.CloseOutput()
+        except Exception as error:
+            if log is not None:
+                log.Error('VivaldiBookmarks', f'Ошибка закрытия выходной БД: {error}')
+
+        if recordsCount == 0:
+            return {}
 
         return {self.__parameters.get('MODULENAME'): outputWriter.GetDBName()}
