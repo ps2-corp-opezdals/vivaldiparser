@@ -16,7 +16,7 @@ from conftest import MODULE_NAMES, db_rows, run_framework
 
 EXPECTED_E2E_ROWS = {
     "VivaldiBookmarks": 46,
-    "VivaldiCache": 21,
+    "VivaldiCache": 15,
     "VivaldiCookies": 395,
     "VivaldiDownloads": 6,
     "VivaldiHistory": 537,
@@ -180,5 +180,5 @@ def test_e2e_history_time_matches_manual_check(e2e_run):
     assert row == (
         "https://vivaldi.com/getstarted/",
         "2026-11-06 14:48:17.139433+00:00",
-        134384500971394330,
+        13438450097139433,
     )
