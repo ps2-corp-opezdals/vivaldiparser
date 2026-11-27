@@ -17,7 +17,6 @@ FIRST_URL = "https://vivaldi.com/getstarted/"
 FIRST_TITLE = "Welcome to Vivaldi"
 FIRST_VISIT_MICROSECONDS = 13438450097139433
 FIRST_VISIT_UTC = "2026-11-06 14:48:17.139433+00:00"
-FIRST_VISIT_LOCAL = "2026-11-06 19:48:17.139433+05:00"
 
 TRANSITION_BASE_NAMES = {
     0: "LINK",
@@ -78,16 +77,16 @@ def test_history_first_record_matches_dump(history_rows):
     assert row["URL"] == FIRST_URL
     assert row["Title"] == FIRST_TITLE
     assert row["DateTime_UTC"] == FIRST_VISIT_UTC
-    assert row["Timestamp_UTC"] == FIRST_VISIT_MICROSECONDS * 10
-    assert row["DateTime_Local"] == FIRST_VISIT_LOCAL
+    # после правки C1 метка хранится в микросекундах Chromium, как в других модулях
+    assert row["Timestamp_UTC"] == FIRST_VISIT_MICROSECONDS
     assert row["TransitionName"] == TRANSITION_BASE_NAMES[row["Transition"] & 0xFF]
 
 
-def test_history_timestamp_is_filetime(history_rows):
-    """Timestamp_UTC хранится в 100-нс интервалах FILETIME и согласован с DateTime_UTC."""
+def test_history_timestamp_is_chromium_microseconds(history_rows):
+    """Timestamp_UTC и DateTime_UTC описывают один и тот же момент."""
     for row in history_rows:
-        assert row["Timestamp_UTC"] % 10 == 0, row["URL"]
-        assert chromium_to_utc(row["Timestamp_UTC"] // 10).isoformat().replace(
+        assert row["Timestamp_UTC"] >= 0, row["URL"]
+        assert chromium_to_utc(row["Timestamp_UTC"]).isoformat().replace(
             "T", " "
         ) == row["DateTime_UTC"], row["URL"]
 
@@ -138,13 +137,24 @@ def test_history_deduplication_between_urls_and_visits(history_run, history_rows
     assert urls < visits, "ожидается объединение нескольких визитов одного URL"
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="Z1 (ПВ-1/ПВ-2): нулевое Chromium-время роняет общий пересчёт "
-           "chromium_to_datetime, модуль обязан пропустить запись с предупреждением",
-)
+def test_history_uses_machine_timezone(history_rows):
+    """
+    B6 исправлен: DateTime_Local и TimeZoneOffset берутся с машины,
+    как в VivaldiBookmarks, а не зашиты как +05:00.
+    """
+    machine_offset = int(datetime.now().astimezone().utcoffset().total_seconds() // 60)
+    for row in history_rows:
+        assert row["TimeZoneOffset"] == machine_offset, row["URL"]
+        assert datetime.fromisoformat(row["DateTime_Local"]).utcoffset() == timedelta(
+            minutes=machine_offset
+        ), row["URL"]
+
+
 def test_history_survives_zero_visit_time(runner, tmp_path):
-    """visits.visit_time = 0 не должен ронять модуль и весь каркас."""
+    """
+    Z1 исправлен: запись с visit_time = 0 не роняет модуль и весь прогон.
+    Отдельно проверяется, что файл с такими данными обрабатывается до конца.
+    """
     import sqlite3
 
     storage = tmp_path / "zero_history"
@@ -160,11 +170,45 @@ def test_history_survives_zero_visit_time(runner, tmp_path):
         INSERT INTO urls (id, url, title, visit_count, last_visit_time)
              VALUES (1, 'https://example.com/zero', 'Zero', 1, 0);
         INSERT INTO visits (id, url, visit_time, from_visit, transition, visit_duration)
-             VALUES (1, 1, 0, 0, 0, 0);
+             VALUES (1, 1, 0, 0, 0, 0), (2, 1, 13438450097139433, 0, 805306374, 100);
         """
     )
     connection.commit()
     connection.close()
 
     result, db_path = runner.run("VivaldiHistory", storage)
-    assert result == {} or db_rows(db_path) == 0
+    rows = db_select(db_path, "select URL, Timestamp_UTC, DateTime_UTC from Data order by ID")
+    assert result, "модуль не вернул результат для базы с одной нормальной записью"
+    assert len(rows) == 2
+    assert rows[0]["Timestamp_UTC"] == 0
+    assert rows[1]["Timestamp_UTC"] == FIRST_VISIT_MICROSECONDS
+
+
+@pytest.mark.xfail(
+    strict=True,
+    reason="Z1-1 (ПВ-1/ПВ-2): визит с visit_time = 0 получает DateTime_UTC "
+           "'1970-01-01 00:00:00+00:00' вместо пустой строки",
+)
+def test_history_zero_time_should_be_empty(runner, tmp_path):
+    """Нулевое время визита не должно выглядеть как событие 1 января 1970."""
+    import sqlite3
+
+    storage = tmp_path / "zero_time"
+    storage.mkdir()
+    connection = sqlite3.connect(str(storage / "History"))
+    connection.executescript(
+        """
+        CREATE TABLE urls (id INTEGER PRIMARY KEY, url TEXT, title TEXT,
+                          visit_count INTEGER, last_visit_time INTEGER);
+        CREATE TABLE visits (id INTEGER PRIMARY KEY, url INTEGER, visit_time INTEGER,
+                             from_visit INTEGER, transition INTEGER, visit_duration INTEGER);
+        INSERT INTO urls VALUES (1, 'https://example.com/zero', 'Zero', 1, 0);
+        INSERT INTO visits VALUES (1, 1, 0, 0, 0, 0);
+        """
+    )
+    connection.commit()
+    connection.close()
+
+    _, db_path = runner.run("VivaldiHistory", storage)
+    row = db_select(db_path, "select * from Data")[0]
+    assert row["DateTime_UTC"] == "", row["DateTime_UTC"]

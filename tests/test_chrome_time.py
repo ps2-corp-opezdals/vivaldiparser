@@ -42,24 +42,27 @@ def test_datetime_epoch():
     )
 
 
-def test_zero_chromium_time_raises():
+def test_zero_chromium_time_returns_safe_epoch():
     """
-    Фактическое поведение: нулевое Chromium-время (в базе это "времени нет")
-    приводит к OSError внутри каркасного TimeConverter.
-    Осталось зафиксировано, чтобы видеть, где именно узкое место.
+    Z1 исправлен: нулевое, отсутствующее и нечисловое значение больше
+    не роняет пересчёт — возвращается безопасная эпоха 1970-01-01 UTC.
     """
-    with pytest.raises(OSError):
-        chromium_to_datetime(0)
+    safe = datetime(1970, 1, 1, tzinfo=timezone.utc)
+    assert chromium_to_datetime(0) == safe
+    assert chromium_to_datetime(None) == safe
+    assert chromium_to_datetime(-5) == safe
+    assert chromium_to_datetime("не число") == safe
 
 
 @pytest.mark.xfail(
     strict=True,
-    reason="Z1 (ПВ-1): chromium_to_datetime обязан корректно обрабатывать 0, "
-           "иначе модули падают на артефактах с пустым временем",
+    reason="Z1-1 (ПВ-1): вместо отсутствующего времени в поля БД попадает "
+           "1970-01-01, в отчёте такая дата выглядит как реальное событие; "
+           "ожидаем пустое значение",
 )
-def test_zero_chromium_time_should_be_safe():
-    """Ожидаемое поведение: 0 -> 1601-01-01 либо явный None, без исключения."""
-    assert chromium_to_datetime(0) == datetime(1601, 1, 1, tzinfo=timezone.utc)
+def test_zero_time_should_be_empty_not_epoch():
+    """Отсутствующее время не должно выглядеть как дата 01.01.1970."""
+    assert format_datetime(chromium_to_datetime(0)) == ""
 
 
 def test_datetime_real_visit_utc():

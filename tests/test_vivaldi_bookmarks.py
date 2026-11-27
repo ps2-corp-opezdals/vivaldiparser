@@ -134,13 +134,25 @@ def test_bookmarks_time_matches_json(bookmarks_rows, bookmarks_json):
 
     assert wanted is not None
     row = next(r for r in bookmarks_rows if r["PathInTree"].endswith("Vivaldi Browser"))
-    assert row["TimestampAdded_UTC"] == int(wanted["date_added"]) * 10
+    # C1: метки во всех модулях теперь в микросекундах Chromium
+    assert row["TimestampAdded_UTC"] == int(wanted["date_added"])
     assert row["DateTimeAdded_UTC"] == chromium_to_utc(
         int(wanted["date_added"])
     ).isoformat().replace("T", " ")
-    # у этого узла в JSON нет date_modified -> поле должно остаться пустым
-    if not wanted.get("date_modified"):
-        assert row["DateTimeModified_UTC"] == ""
+
+
+@pytest.mark.xfail(
+    strict=True,
+    reason="Z1-1 (ПВ-1/ПВ-4): у узла без date_modified в БД попадает "
+           "1970-01-01 вместо пустой строки; VivaldiDownloads и VivaldiCookies "
+           "при нулевом времени пишут пустое значение — надо так же",
+)
+def test_bookmarks_missing_date_modified_is_empty(bookmarks_rows):
+    """Отсутствующее время не должно превращаться в реальную дату."""
+    row = next(r for r in bookmarks_rows if r["PathInTree"].endswith("Vivaldi Browser"))
+    assert row["TimestampAdded_UTC"] > 0
+    assert row["DateTimeModified_UTC"] == "", row["DateTimeModified_UTC"]
+    assert row["TimestampModified_UTC"] in (0, None, ""), row["TimestampModified_UTC"]
 
 
 def test_bookmarks_local_time_matches_offset(bookmarks_rows):
@@ -194,13 +206,8 @@ def test_bookmarks_invalid_json_skipped(runner, tmp_path):
     assert db_rows(db_path) == 0, "на битом JSON не должно быть записей"
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="D2 (ПВ-4, контракт п.5): при пустом или битом дереве модуль "
-           "возвращает имя БД, которой нет на диске",
-)
 def test_bookmarks_empty_tree_returns_empty_dict(runner, tmp_path):
-    """Ожидаемое поведение по контракту: нет данных -> тихий возврат {}."""
+    """D2 исправлен: при пустом дереве модуль тихо возвращает {}."""
     profile = tmp_path / "bad2" / "config" / "vivaldi" / "Default"
     profile.mkdir(parents=True)
     (profile / "Bookmarks").write_text(

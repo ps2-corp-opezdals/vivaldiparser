@@ -141,19 +141,16 @@ def test_downloads_guid_unique(downloads_rows):
         assert row["DataSource"].replace("\\", "/").endswith("History"), row
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="C1 (контракт п.7): Timestamp_*_UTC в Downloads/Cookies хранится в "
-           "мкс Chromium, а в History — в 100-нс FILETIME. Единый формат не выдержан",
-)
 def test_downloads_timestamp_unit_matches_history(downloads_rows, tmp_path_factory):
-    """Одинаковые по имени метки должны быть в одинаковых единицах."""
+    """
+    C1 исправлен: одноимённые метки во всех модулях хранятся в микросекундах
+    Chromium, а не в FILETIME.
+    """
     from conftest import ModuleRunner
 
     runner = ModuleRunner(tmp_path_factory.mktemp("units"))
     _, history_db = runner.run("VivaldiHistory", SOURCE_DUMP)
     history_row = db_select(history_db, "select Timestamp_UTC from Data order by ID limit 1")[0]
 
-    # масштаб обеих меток должен быть сопоставим (одна система единиц)
     ratio = history_row["Timestamp_UTC"] / downloads_rows[0]["TimestampStart_UTC"]
     assert 0.9 < ratio < 1.1, f"разные единицы измерения: ratio={ratio}"
