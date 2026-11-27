@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """
 Тест "нет файла" (п.5 ПВ-7) и инвариант результата модуля.
 
@@ -6,30 +6,20 @@
 возвращает {} и не падает. Дополнительно: если модуль всё же вернул имя БД,
 файл обязан существовать и содержать записи.
 
-Модули с подтверждёнными дефектами помечены xfail(strict=True): набор зелёный,
-но как только автор исправит модуль, pytest сообщит XPASS и отметку придётся
-снять.
+D1 был исправлен в 574ed3e, поэтому отметок xfail здесь больше нет.
 """
 
 import pytest
 
 from conftest import db_rows
 
-# D1: VivaldiHistory возвращает имя БД, даже когда записей нет
-D1_HISTORY = pytest.mark.xfail(
-    strict=True,
-    reason="D1 (ПВ-2, контракт п.5): VivaldiHistory возвращает "
-           "{MODULENAME: имя_БД} даже при отсутствии файла History",
-)
-
-MODULES_WITHOUT_D1 = [
+MODULES_ALL = [
     pytest.param("VivaldiBookmarks"),
     pytest.param("VivaldiCache"),
     pytest.param("VivaldiCookies"),
     pytest.param("VivaldiDownloads"),
+    pytest.param("VivaldiHistory"),
 ]
-
-MODULES_ALL = MODULES_WITHOUT_D1 + [pytest.param("VivaldiHistory", marks=D1_HISTORY)]
 
 
 @pytest.mark.parametrize("module_name", MODULES_ALL)
@@ -50,14 +40,14 @@ def test_declared_database_always_exists(module_name, runner, empty_storage):
     assert db_path.stat().st_size > 0, f"{module_name} заявил {result}, файл 0 байт"
 
 
-@pytest.mark.parametrize("module_name", MODULES_WITHOUT_D1 + [pytest.param("VivaldiHistory")])
+@pytest.mark.parametrize("module_name", MODULES_ALL)
 def test_no_records_without_artifact(module_name, runner, empty_storage):
     """Таблица Data пуста, когда артефактов в хранилище нет."""
     _, db_path = runner.run(module_name, empty_storage)
     assert db_rows(db_path) == 0
 
 
-@pytest.mark.parametrize("module_name", MODULES_WITHOUT_D1 + [pytest.param("VivaldiHistory")])
+@pytest.mark.parametrize("module_name", MODULES_ALL)
 def test_no_junk_database_file(module_name, runner, empty_storage):
     """При пустом результате в кейсе не остаётся непустого файла БД."""
     _, db_path = runner.run(module_name, empty_storage)

@@ -97,26 +97,23 @@ def test_module_uses_shared_time_converter(module_name):
         if isinstance(node, ast.ImportFrom) and node.module == "Common.Chrom":
             imported.update(alias.name for alias in node.names)
     assert imported, f"{module_name} не использует общий модуль времени"
-    assert imported <= {"chromium_to_datetime", "chromium_to_filetime", "format_datetime"}, \
-        f"{module_name}: неизвестные функции общего модуля: {imported}"
+    assert imported <= {
+        "chromium_to_datetime", "chromium_to_filetime", "format_datetime", "FILETIME_EPOCH",
+    }, f"{module_name}: неизвестные функции общего модуля: {imported}"
 
 
-@pytest.mark.xfail(
-    strict=True,
-    reason="C2 (контракт п.6): History/Bookmarks/Cache считают FILETIME "
-           "вручную (умножение на 10 или TimeConverter), а не через "
-           "Common.Chrom.chromium_to_filetime",
-)
 def test_no_manual_filetime_math():
-    """Пересчёт микросекунд Chromium в FILETIME обязан жить только в общем модуле."""
+    """
+    C2 исправлен (574ed3e): пересчёт микросекунд Chromium в FILETIME
+    больше не дублируется в модулях, используется общий chromium_to_filetime.
+    """
     offenders = {}
     for name in MODULE_NAMES:
         tree = parser_tree(name)
         for node in ast.walk(tree):
             if isinstance(node, ast.BinOp) and isinstance(node.op, ast.Mult):
-                left, right = node.left, node.right
                 constants = [
-                    operand for operand in (left, right)
+                    operand for operand in (node.left, node.right)
                     if isinstance(operand, ast.Constant) and operand.value == 10
                 ]
                 if constants:
@@ -125,52 +122,44 @@ def test_no_manual_filetime_math():
 
 
 DOCSTRING_MODULES = [
-    pytest.param("VivaldiBookmarks"),
-    pytest.param("VivaldiCookies"),
-    pytest.param("VivaldiDownloads"),
-    pytest.param("VivaldiHistory"),
-    pytest.param(
-        "VivaldiCache",
-        marks=pytest.mark.xfail(
-            strict=True,
-            reason="C3 (ПВ-6, контракт п.8): у _VivaldiCacheParser.Start нет "
-                   "docstring, остальные модули правило выполняют",
-        ),
-    ),
+    pytest.param(name) for name in MODULE_NAMES
 ]
 
 
-@pytest.mark.parametrize("module_name", DOCSTRING_MODULES)
-def test_module_docstrings_russian(module_name):
+def test_module_docstrings_russian():
     """
-    п.8: у класса Parser, у всех методов класса и у модуля в целом есть
-    docstring на русском. Служебные __init__ и вложенные функции-помощники
-    не проверяются (в каркасе они тоже без docstring).
+    п.8 исправлен: у класса Parser, у всех методов класса и у модуля в целом
+    есть docstring на русском. Служебные __init__ и вложенные функции-
+    помощники не проверяются (в каркасе они тоже без docstring).
     """
-    tree = parser_tree(module_name)
-    missing = []
+    problems = {}
+    for module_name in MODULE_NAMES:
+        tree = parser_tree(module_name)
+        missing = []
 
-    for node in tree.body:
-        if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+        for node in tree.body:
+            if isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                doc = ast.get_docstring(node)
+                if not doc or not CYRILLIC.search(doc):
+                    missing.append(node.name)
+
+        for node in ast.walk(tree):
+            if not isinstance(node, ast.ClassDef):
+                continue
             doc = ast.get_docstring(node)
             if not doc or not CYRILLIC.search(doc):
                 missing.append(node.name)
+            for member in node.body:
+                if isinstance(member, (ast.FunctionDef, ast.AsyncFunctionDef)):
+                    if member.name.startswith("__"):
+                        continue
+                    member_doc = ast.get_docstring(member)
+                    if not member_doc or not CYRILLIC.search(member_doc):
+                        missing.append(f"{node.name}.{member.name}")
+        if missing:
+            problems[module_name] = missing
 
-    for node in ast.walk(tree):
-        if not isinstance(node, ast.ClassDef):
-            continue
-        doc = ast.get_docstring(node)
-        if not doc or not CYRILLIC.search(doc):
-            missing.append(node.name)
-        for member in node.body:
-            if isinstance(member, (ast.FunctionDef, ast.AsyncFunctionDef)):
-                if member.name.startswith("__"):
-                    continue
-                member_doc = ast.get_docstring(member)
-                if not member_doc or not CYRILLIC.search(member_doc):
-                    missing.append(f"{node.name}.{member.name}")
-
-    assert not missing, f"нет русскоязычных docstring у: {missing}"
+    assert not problems, f"нет русскоязычных docstring у: {problems}"
 
 
 @pytest.mark.parametrize("module_name", MODULE_NAMES)
