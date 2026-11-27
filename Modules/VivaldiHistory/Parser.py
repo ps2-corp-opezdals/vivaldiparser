@@ -6,6 +6,7 @@
 """
 import os
 import sqlite3
+from datetime import datetime
 from typing import Any, Dict, Optional
 
 from Common.Chrom import chromium_to_datetime, format_datetime
@@ -27,21 +28,35 @@ TRANSITION_TYPES = {
     10: 'KEYWORD_GENERATED',
 }
 
-# Часовой пояс для локального времени
-_LOCAL_TZ_MINUTES = 300
-_LOCAL_TZ_NAME = 'Asia/Yekaterinburg'
-
 
 class _VivaldiHistoryParser:
     """Извлекает визиты из базы History и пишет их в БД каркаса."""
 
     def __init__(self, parserParameters: dict, recordFields: dict):
+        """Инициализировать парсер параметрами каркаса и полями записи."""
         self._storage: str = parserParameters.get('STORAGE')
         self._wr: Any = parserParameters.get('OUTPUTWRITER')
         self._db: Any = parserParameters.get('DBCONNECTION')
         self._log: Any = parserParameters.get('LOG')
         self._record: dict = {field: '' for field in recordFields.keys()}
-        self._currentTzInfo: tzInfo = tzInfo(_LOCAL_TZ_MINUTES, _LOCAL_TZ_NAME)
+        self._currentTzInfo, self._tzOffsetMinutes = self._LocalTimeZone()
+
+    @staticmethod
+    def _LocalTimeZone() -> tuple:
+        """
+        Определить локальный часовой пояс машины для поля DateTime_Local.
+
+        Returns:
+            tuple: объект часового пояса и смещение в минутах
+        """
+        try:
+            localNow = datetime.now().astimezone()
+            offset = localNow.utcoffset()
+            minutes = int(offset.total_seconds() // 60) if offset else 0
+            name = localNow.tzname() or ''
+        except (OSError, ValueError):
+            return tzInfo(0, 'UTC'), 0
+        return tzInfo(minutes, name), minutes
 
     def _CleanRecord(self) -> None:
         """Очистить поля текущей записи."""
@@ -75,14 +90,19 @@ class _VivaldiHistoryParser:
         base = transition & 0xFF
         return TRANSITION_TYPES.get(base, f'UNKNOWN({base})')
 
-    async def Start(self) -> None:
-        """Точка входа логики: найти History и записать визиты."""
+    async def Start(self) -> int:
+        """
+        Точка входа логики: найти History и записать визиты.
+
+        Returns:
+            int: количество записанных записей (0, если файла нет или он битый)
+        """
         historyPath = self._HistoryPath()
         if historyPath is None:
             message = 'Файл History не найден в дампе Vivaldi — модуль пропущен'
             if self._log:
                 self._log.Info('VivaldiHistory', message)
-            return
+            return 0
 
         if self._log:
             self._log.Info('VivaldiHistory', f'Читаю {historyPath}')
@@ -93,8 +113,9 @@ class _VivaldiHistoryParser:
         except sqlite3.Error as e:
             if self._log:
                 self._log.Error('VivaldiHistory', f'Не удалось открыть History: {e}')
-            return
+            return 0
 
+        recordsCount = 0
         try:
             cur = conn.cursor()
             cur.execute("""
@@ -116,9 +137,14 @@ class _VivaldiHistoryParser:
                 self._record['Title'] = title or ''
                 self._record['VisitCount'] = visit_count or 0
                 self._record['DateTime_UTC'] = format_datetime(dt_utc)
-                self._record['Timestamp_UTC'] = int(visit_time) * 10
+                # Как в Downloads/Cookies: Chromium-микросекунды, а не FILETIME
+                try:
+                    timestampUtc = int(visit_time or 0)
+                except (TypeError, ValueError):
+                    timestampUtc = 0
+                self._record['Timestamp_UTC'] = timestampUtc
                 self._record['DateTime_Local'] = format_datetime(dt_local)
-                self._record['TimeZoneOffset'] = _LOCAL_TZ_MINUTES
+                self._record['TimeZoneOffset'] = self._tzOffsetMinutes
                 self._record['Transition'] = transition or 0
                 self._record['TransitionName'] = self._DecodeTransition(transition or 0)
                 self._record['VisitDuration'] = duration or 0
@@ -138,12 +164,15 @@ class _VivaldiHistoryParser:
                     self._record['DataSource'],
                 ))
 
+                recordsCount += 1
                 self._CleanRecord()
         except sqlite3.Error as e:
             if self._log:
                 self._log.Error('VivaldiHistory', f'Ошибка чтения History: {e}')
         finally:
             conn.close()
+
+        return recordsCount
 
 
 class Parser:
@@ -152,6 +181,7 @@ class Parser:
     """
 
     def __init__(self, parameters: dict):
+        """Инициализировать модуль параметрами каркаса и описанием полей БД."""
         self.__parameters: dict = parameters
 
         self.__recordFields: dict = {
@@ -177,12 +207,13 @@ class Parser:
         Запустить обработку History и записать результат в БД.
 
         Returns:
-            Dict: {OUTPUTFILENAME: имя БД}
+            Dict: {MODULENAME: имя БД} либо {}, если записей нет
         """
         outputWriter: Any = self.__parameters.get('OUTPUTWRITER')
         dbConnection: Any = self.__parameters.get('DBCONNECTION')
+        log: Any = self.__parameters.get('LOG')
 
-        if not dbConnection.IsConnected():
+        if outputWriter is None or dbConnection is None or not dbConnection.IsConnected():
             return {}
 
         fields: dict = {
@@ -190,7 +221,7 @@ class Parser:
             'Title':          ('Заголовок',           300, 'string',  'Заголовок страницы'),
             'VisitCount':     ('Кол-во визитов',       50, 'integer', 'Суммарное число визитов URL'),
             'DateTime_UTC':   ('Дата/время UTC',       50, 'datetime','Время визита в UTC'),
-            'Timestamp_UTC':  ('Timestamp UTC',        50, 'datetime','FILETIME (100 нс)'),
+            'Timestamp_UTC':  ('Timestamp UTC',       100, 'integer', 'Chromium-время (мкс с 1601-01-01 UTC)'),
             'DateTime_Local': ('Дата/время локальное', 50, 'datetime','Время визита в локальном поясе'),
             'TimeZoneOffset': ('Смещение пояса',       50, 'integer', 'Смещение в минутах'),
             'Transition':     ('Код перехода',         50, 'integer', 'Сырой transition из Chromium'),
@@ -212,15 +243,32 @@ class Parser:
             'Vendor': 'LabFramework',
         }
 
-        outputWriter.SetFields(fields, self.__recordFields)
-        outputWriter.CreateDatabaseTables()
+        recordsCount = 0
 
-        await self.__historyParser.Start()
+        try:
+            outputWriter.SetFields(fields, self.__recordFields)
+            outputWriter.CreateDatabaseTables()
 
-        outputWriter.RemoveTempTables()
-        await outputWriter.CreateDatabaseIndexes(self.__parameters.get('MODULENAME'))
-        outputWriter.SetInfo(infoTableData)
-        outputWriter.WriteMeta()
-        await outputWriter.CloseOutput()
+            recordsCount = await self.__historyParser.Start()
+
+            outputWriter.RemoveTempTables()
+            if recordsCount > 0:
+                await outputWriter.CreateDatabaseIndexes(
+                    self.__parameters.get('MODULENAME')
+                )
+                outputWriter.SetInfo(infoTableData)
+                outputWriter.WriteMeta()
+        except Exception as error:
+            if log is not None:
+                log.Error('VivaldiHistory', f'Ошибка обработки History: {error}')
+
+        try:
+            await outputWriter.CloseOutput()
+        except Exception as error:
+            if log is not None:
+                log.Error('VivaldiHistory', f'Ошибка закрытия выходной БД: {error}')
+
+        if recordsCount == 0:
+            return {}
 
         return {self.__parameters.get('MODULENAME'): outputWriter.GetDBName()}
